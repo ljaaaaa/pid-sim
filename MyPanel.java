@@ -16,4 +16,9 @@ public class MyPanel extends JPanel {
 
         g2d.drawImage(new ImageIcon("images/image.png").getImage(), 0, 0, 100, 100, null);
     }
+
+    public void drawGrid(Graphics2D g2d){
+        
+
+    }
 }
