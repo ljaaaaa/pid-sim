@@ -17,16 +17,15 @@ public class MyPanel extends JPanel {
     }
 
     public void drawGrid(Graphics2D g2d){
-        int spacing = Constants.SCREEN_WIDTH/Constants.GRID_SIZE;
 
-        for (int x = 0; x < Constants.GRID_SIZE; x++){
-
-            //X-axis
-            g2d.drawLine((x+1)*spacing, 0, (x+1)*spacing, Constants.SCREEN_HEIGHT);
-
-            //Y-axis
-            g2d.drawLine(0, (x+1)*spacing, Constants.SCREEN_WIDTH, (x+1)*spacing);
+         //X-axis
+         for (int x = 1; x <= Constants.GRID_LINES_X; x++){
+            g2d.drawLine(x*Constants.SPACE, 0, x*Constants.SPACE, Constants.GRID_HEIGHT);
         }
 
+        //Y-axis
+        for (int x = 1; x <= Constants.GRID_LINES_Y; x++){
+            g2d.drawLine(0, x*Constants.SPACE, Constants.GRID_WIDTH, x*Constants.SPACE);
+        }
     }
 }
