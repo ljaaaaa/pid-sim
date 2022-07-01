@@ -18,12 +18,12 @@ public class MyPanel extends JPanel {
 
     public void drawGrid(Graphics2D g2d){
 
-         //X-axis
-         for (int x = 1; x <= Constants.GRID_LINES_X; x++){
+         //X-axis (up/down)
+         for (int x = 0; x < Constants.GRID_LINES_X; x++){
             g2d.drawLine(x*Constants.SPACE, 0, x*Constants.SPACE, Constants.GRID_HEIGHT);
         }
 
-        //Y-axis
+        //Y-axis (left/right)
         for (int x = 1; x <= Constants.GRID_LINES_Y; x++){
             g2d.drawLine(0, x*Constants.SPACE, Constants.GRID_WIDTH, x*Constants.SPACE);
         }

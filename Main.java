@@ -12,11 +12,11 @@ public class Main {
     public void setUpFrame(){
         JFrame f = new JFrame("PID Simulator");
         f.setIconImage(new ImageIcon("images/image.png").getImage());
-        f.setSize(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+        f.setSize(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
         f.setLayout(null);
         
         f.add(panel);
-        panel.setBounds(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+        panel.setBounds(50, 50, Constants.GRID_WIDTH, Constants.GRID_HEIGHT+1);
 
         f.setLocationRelativeTo(null);
         f.setResizable(false);
