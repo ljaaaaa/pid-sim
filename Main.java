@@ -3,6 +3,8 @@ import javax.swing.JFrame;
 
 public class Main {
 
+    MyPanel panel = new MyPanel();
+
     public Main(){
         setUpFrame();
     }
@@ -13,6 +15,9 @@ public class Main {
         f.setSize(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         f.setLayout(null);
         
+        f.add(panel);
+        panel.setBounds(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+
         f.setLocationRelativeTo(null);
         f.setResizable(false);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

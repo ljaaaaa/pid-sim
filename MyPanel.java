@@ -1,4 +1,3 @@
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -14,11 +13,20 @@ public class MyPanel extends JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D)g;
 
-        g2d.drawImage(new ImageIcon("images/image.png").getImage(), 0, 0, 100, 100, null);
+        drawGrid(g2d);
     }
 
     public void drawGrid(Graphics2D g2d){
-        
+        int spacing = Constants.SCREEN_WIDTH/Constants.GRID_SIZE;
+
+        for (int x = 0; x < Constants.GRID_SIZE; x++){
+
+            //X-axis
+            g2d.drawLine((x+1)*spacing, 0, (x+1)*spacing, Constants.SCREEN_HEIGHT);
+
+            //Y-axis
+            g2d.drawLine(0, (x+1)*spacing, Constants.SCREEN_WIDTH, (x+1)*spacing);
+        }
 
     }
 }
