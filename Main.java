@@ -16,7 +16,7 @@ public class Main {
         f.setLayout(null);
         
         f.add(panel);
-        panel.setBounds(50, 50, Constants.GRID_WIDTH, Constants.GRID_HEIGHT+1);
+        panel.setBounds(0, 0, Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
 
         f.setLocationRelativeTo(null);
         f.setResizable(false);
