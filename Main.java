@@ -19,7 +19,7 @@ public class Main {
         f.setLayout(null);
         
         f.add(panel);
-        panel.setBounds(0, 0, Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
+        panel.setBounds(Constants.EXTRA, 0, Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
 
         f.setLocationRelativeTo(null);
         f.setResizable(false);
