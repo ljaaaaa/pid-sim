@@ -9,17 +9,22 @@ public class MyTime {
     public MyTime(Motor motor) {
         points = new ArrayList<>();
         this.motor = motor;
-        time = 1;
+        time = 0;
         addPoint(0, 0);
     }   
 
-    public void addPoint(int x, int y){
+    public void addPoint(double x, double y){
         points.add(new MyPoint(x, y));
     }
 
     public void passTime(double add){
         motor.updatePosition(motor.getPosition() + motor.getOutput());
-        addPoint((int)time, (int)motor.getPosition());
-        this.time+=add;
+
+        time += add;
+
+        //Round time
+        time = Math.round(time * 100.0) / 100.0;
+        
+        addPoint(time, motor.getPosition());
     }
 }

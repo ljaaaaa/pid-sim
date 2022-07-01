@@ -44,7 +44,6 @@ public class MyPanel extends JPanel {
         for (int x = 0; x < newPoints.size(); x++){
             MyPoint point = newPoints.get(x);
             drawPoint(g2d, point.x*Constants.SPACE+xtra, point.y*Constants.SPACE, 4);
-            System.out.println(point.x + " : " + point.y);
         }
     }
 
