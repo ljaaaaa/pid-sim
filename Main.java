@@ -18,9 +18,9 @@ public class Main {
     public void pid(){
         for (int x = 0; x < 70; x++){
             time.passTime();
-            panel.repaint();
             System.out.println(motor.getPosition());
         }
+        panel.repaint();
     }
 
     public void setUpFrame(){

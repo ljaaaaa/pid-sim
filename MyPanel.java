@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 public class MyPanel extends JPanel {
-
+    int xtra = Constants.EXTRA;
     MyTime time;
 
     public MyPanel(MyTime time){
@@ -18,11 +18,25 @@ public class MyPanel extends JPanel {
 
         drawGrid(g2d);
         drawPoints(g2d);
+        connectPoints(g2d);
+    }
+
+    //Connect two points with a line
+    public void connectPoints(Graphics2D g2d){
+        g2d.setColor(Constants.POINT_COLOR);
+        ArrayList<MyPoint> newPoints = convertPoints();
+
+        for (int x = 0; x < newPoints.size()-1; x++){
+            int x1 = newPoints.get(x).x*Constants.SPACE+xtra;
+            int y1 = newPoints.get(x).y*Constants.SPACE;
+            int x2 = newPoints.get(x+1).x*Constants.SPACE+xtra;
+            int y2 = newPoints.get(x+1).y*Constants.SPACE;
+            g2d.drawLine(x1, y1, x2, y2);
+        }
     }
 
     //Draw all points in time.points
     public void drawPoints(Graphics2D g2d){
-        int xtra = Constants.EXTRA;
         g2d.setColor(Constants.POINT_COLOR);
 
         ArrayList<MyPoint> newPoints = convertPoints();
@@ -55,8 +69,6 @@ public class MyPanel extends JPanel {
 
     //Draw initial grid base
     public void drawGrid(Graphics2D g2d){
-        int xtra = Constants.EXTRA;
-        
         //Time
         g2d.drawString("Time", xtra, Constants.GRID_HEIGHT+15);
 
