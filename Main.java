@@ -8,7 +8,7 @@ public class Main {
 
     public Main(){
         time = new MyTime();
-        panel = new MyPanel();
+        panel = new MyPanel(time);
         setUpFrame();
     }
 

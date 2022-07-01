@@ -1,17 +1,14 @@
 import java.util.ArrayList;
 
-import java.util.ArrayList;
-
 public class MyTime {
  
     public ArrayList<MyPoint> points;
 
     public MyTime() {
         points = new ArrayList<>();
-    }
-
-    public void passSecond(){
-        
-    }
     
+        for (int x = 0; x < 10; x++){
+            points.add(new MyPoint(x, x));
+        }
+    }   
 }

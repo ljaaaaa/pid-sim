@@ -5,8 +5,10 @@ import java.awt.Color;
 
 public class MyPanel extends JPanel {
 
-    public MyPanel(){
-        
+    MyTime time;
+
+    public MyPanel(MyTime time){
+        this.time = time;
     }
 
     @Override
@@ -15,10 +17,28 @@ public class MyPanel extends JPanel {
         Graphics2D g2d = (Graphics2D)g;
 
         drawGrid(g2d);
+        drawPoints(g2d);
     }
 
+    public void drawPoints(Graphics2D g2d){
+        int xtra = Constants.EXTRA;
+        g2d.setColor(new Color(255, 0, 0));
+
+        for (int x = 0; x < time.points.size(); x++){
+            MyPoint point = time.points.get(x);
+            drawPoint(g2d, point.x*Constants.SPACE+xtra, point.y*Constants.SPACE, 4);
+        }
+    }
+
+    //Draw point center
+    public void drawPoint(Graphics2D g2d, int x, int y, int r) {
+        x = x-(r/2);
+        y = y-(r/2);
+        g2d.fillOval(x, y, r, r);
+      }
+
+    //Draw initial grid base
     public void drawGrid(Graphics2D g2d){
-        
         int xtra = Constants.EXTRA;
         
         //Time
