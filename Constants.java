@@ -21,8 +21,8 @@ public class Constants {
     public static final Color TARGET_COLOR = new Color(0, 0, 255);
 
     //PID
-    public static final double TARGET = 20.0;
-    public static final double kP = 0.8;
+    public static final double TARGET = 20;
+    public static final double kP = 2.9;
     public static final double kD = 0.0;
     public static final double kI = 0.0;
 }
