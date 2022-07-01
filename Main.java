@@ -2,12 +2,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Main {
-
     public MyPanel panel;
     public MyTime time;
     public Motor motor;
-    public int position;
-
 
     public Main(){
         motor = new Motor();
@@ -19,10 +16,8 @@ public class Main {
 
     //Simulates 10 seconds of PID
     public void pid(){
-        for (int x = 0; x < 10; x++){
+        for (int x = 0; x < 50; x++){
             time.passTime();
-            position += motor.getOutput();
-            motor.updatePosition(position);
             panel.repaint();
         }
     }
