@@ -1,7 +1,7 @@
 public class Motor {
     //Currect position
-    int current;
-    int target;
+    double position;
+    double target;
 
     /*
     Motor output = P*error + D*(slope at that point) + I*(total error over time)
@@ -18,11 +18,11 @@ public class Motor {
         return Constants.kP * error;
     }
 
-    public int getPosition(){
-        return current;
+    public double getPosition(){
+        return position;
     }
 
-    public void updatePosition(int current){
-        this.current = current;
+    public void updatePosition(double position){
+        this.position = position;
     }
 }

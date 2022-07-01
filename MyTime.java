@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class MyTime {
  
-    public int position;
     private int time;
     public ArrayList<MyPoint> points;
     public Motor motor;
@@ -18,9 +17,8 @@ public class MyTime {
     }
 
     public void passTime(){
-        position += motor.getOutput();
-        motor.updatePosition(position);
-        addPoint(time, position);
+        motor.updatePosition(motor.getPosition() + motor.getOutput());
+        addPoint(time, (int)motor.getPosition());
         time++;
     }
 }
