@@ -16,9 +16,10 @@ public class Main {
 
     //Simulates 10 seconds of PID
     public void pid(){
-        for (int x = 0; x < 50; x++){
+        for (int x = 0; x < 70; x++){
             time.passTime();
             panel.repaint();
+            System.out.println(motor.getPosition());
         }
     }
 

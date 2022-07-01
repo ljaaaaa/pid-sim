@@ -13,8 +13,6 @@ public class Motor {
 
     public double getOutput(){
         double error = target - getPosition();
-        
-        System.out.println(getPosition());
         return Constants.kP * error;
     }
 
