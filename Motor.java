@@ -15,18 +15,24 @@ public class Motor {
     }
 
     public double getOutput(){
-        System.out.println("++" + position);
         double error = target - getPosition();
         double errorRate = (error - lastError)/ (System.currentTimeMillis() - lastTime);
         double output = Constants.kP * error + Constants.kD * errorRate;
 
-        System.out.println(error);
-
         lastError = error;
         lastTime = System.currentTimeMillis();
+        System.out.println("pos: " + position);
+        System.out.println("out: " + output);
         return output;
-
     }
+
+    /*
+    public double getOutput(){
+        double error = target - getPosition();
+        double output = Constants.kP * error;
+        return output;
+    }
+    */
 
     public double getPosition(){
         return position;
