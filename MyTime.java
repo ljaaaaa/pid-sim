@@ -18,5 +18,6 @@ public class MyTime {
 
     public void passTime(){
         addPoint(time, (int)motor.getOutput());
+        time++;
     }
 }

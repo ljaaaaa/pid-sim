@@ -3,15 +3,28 @@ import javax.swing.JFrame;
 
 public class Main {
 
-    MyPanel panel;
-    MyTime time;
-    Motor motor;
+    public MyPanel panel;
+    public MyTime time;
+    public Motor motor;
+    public int position;
+
 
     public Main(){
         motor = new Motor();
         time = new MyTime(motor);
         panel = new MyPanel(time);
         setUpFrame();
+        pid();
+    }
+
+    //Simulates 10 seconds of PID
+    public void pid(){
+        for (int x = 0; x < 10; x++){
+            time.passTime();
+            position += motor.getOutput();
+            motor.updatePosition(position);
+            panel.repaint();
+        }
     }
 
     public void setUpFrame(){
