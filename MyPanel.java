@@ -2,7 +2,6 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
-import java.awt.Color;
 
 public class MyPanel extends JPanel {
 
@@ -52,7 +51,7 @@ public class MyPanel extends JPanel {
         x = x-(r/2);
         y = y-(r/2);
         g2d.fillOval(x, y, r, r);
-      }
+    }
 
     //Draw initial grid base
     public void drawGrid(Graphics2D g2d){
@@ -63,7 +62,7 @@ public class MyPanel extends JPanel {
 
         //Motor Output
         g2d.rotate(Math.toRadians(270));
-        g2d.drawString("Motor Ouput", -Constants.GRID_HEIGHT, xtra-5);
+        g2d.drawString("Position", -Constants.GRID_HEIGHT, xtra-5);
         g2d.rotate(-Math.toRadians(270));
 
         //Graph
