@@ -2,7 +2,7 @@ public class Constants {
 
     //Screen sizes
     public static final int FRAME_WIDTH = 900;
-    public static final int FRAME_HEIGHT = 600+38;
+    public static final int FRAME_HEIGHT = 550+38;
 
     //Grid size
     public static final int GRID_WIDTH = 500;
@@ -14,4 +14,7 @@ public class Constants {
 
     //Spacing between lines on grid
     public static final int SPACE = GRID_HEIGHT/GRID_LINES_Y;
+
+    //Extra space before starting grid
+    public static final int EXTRA = 50;
 }
