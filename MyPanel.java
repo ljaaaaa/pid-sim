@@ -27,11 +27,11 @@ public class MyPanel extends JPanel {
         ArrayList<MyPoint> newPoints = convertPoints();
 
         for (int x = 0; x < newPoints.size()-1; x++){
-            int x1 = newPoints.get(x).x*Constants.SPACE+xtra;
-            int y1 = newPoints.get(x).y*Constants.SPACE;
-            int x2 = newPoints.get(x+1).x*Constants.SPACE+xtra;
-            int y2 = newPoints.get(x+1).y*Constants.SPACE;
-            g2d.drawLine(x1, y1, x2, y2);
+            double x1 = newPoints.get(x).x*Constants.SPACE+xtra;
+            double y1 = newPoints.get(x).y*Constants.SPACE;
+            double x2 = newPoints.get(x+1).x*Constants.SPACE+xtra;
+            double y2 = newPoints.get(x+1).y*Constants.SPACE;
+            g2d.drawLine((int)x1, (int)y1, (int)x2, (int)y2);
         }
     }
 
@@ -44,6 +44,7 @@ public class MyPanel extends JPanel {
         for (int x = 0; x < newPoints.size(); x++){
             MyPoint point = newPoints.get(x);
             drawPoint(g2d, point.x*Constants.SPACE+xtra, point.y*Constants.SPACE, 4);
+            System.out.println(point.x + " : " + point.y);
         }
     }
 
@@ -53,7 +54,7 @@ public class MyPanel extends JPanel {
         
         for (int x = 0; x < time.points.size(); x++){
             MyPoint point = time.points.get(x);
-            int newY = (Constants.GRID_HEIGHT/Constants.SPACE)-point.y;
+            double newY = (Constants.GRID_HEIGHT/Constants.SPACE)-point.y;
             newPoints.add(new MyPoint(point.x, newY));
         }
 
@@ -61,10 +62,10 @@ public class MyPanel extends JPanel {
     }
 
     //Draw point on center
-    public void drawPoint(Graphics2D g2d, int x, int y, int r) {
+    public void drawPoint(Graphics2D g2d, double x, double y, int r) {
         x = x-(r/2);
         y = y-(r/2);
-        g2d.fillOval(x, y, r, r);
+        g2d.fillOval((int)x, (int)y, r, r);
     }
 
     //Draw initial grid base

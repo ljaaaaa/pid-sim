@@ -14,11 +14,12 @@ public class Main {
         pid();
     }
 
-    //Simulates 10 seconds of PID
+    //Simulates x seconds of PID
     public void pid(){
-        for (int x = 0; x < 70; x++){
-            time.passTime();
+        for (int x = 0; x < 100; x+=1){
+            time.passTime(0.2);
             System.out.println(motor.getPosition());
+            panel.repaint();
         }
         panel.repaint();
     }
