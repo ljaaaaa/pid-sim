@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 public class MyPanel extends JPanel {
 
     public MyPanel(){
-
+        
     }
 
     @Override
@@ -17,7 +17,7 @@ public class MyPanel extends JPanel {
 
     public void drawGrid(Graphics2D g2d){
         int xtra = Constants.EXTRA;
-;
+
         //X-axis (up/down)
         for (int x = 0; x < Constants.GRID_LINES_X; x++){
             g2d.drawLine(x*Constants.SPACE+xtra, 0, x*Constants.SPACE+xtra, Constants.GRID_HEIGHT);

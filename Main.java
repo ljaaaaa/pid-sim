@@ -3,9 +3,12 @@ import javax.swing.JFrame;
 
 public class Main {
 
-    MyPanel panel = new MyPanel();
+    MyPanel panel;
+    MyTime time;
 
     public Main(){
+        time = new MyTime();
+        panel = new MyPanel();
         setUpFrame();
     }
 
