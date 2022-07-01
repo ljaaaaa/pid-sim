@@ -1,6 +1,7 @@
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 import java.awt.Color;
 
 public class MyPanel extends JPanel {
@@ -20,17 +21,33 @@ public class MyPanel extends JPanel {
         drawPoints(g2d);
     }
 
+    //Draw all points in time.points
     public void drawPoints(Graphics2D g2d){
         int xtra = Constants.EXTRA;
         g2d.setColor(new Color(255, 0, 0));
 
-        for (int x = 0; x < time.points.size(); x++){
-            MyPoint point = time.points.get(x);
+        ArrayList<MyPoint> newPoints = convertPoints();
+
+        for (int x = 0; x < newPoints.size(); x++){
+            MyPoint point = newPoints.get(x);
             drawPoint(g2d, point.x*Constants.SPACE+xtra, point.y*Constants.SPACE, 4);
         }
     }
 
-    //Draw point center
+    //Convert points y-axis to flip so shows up properly on grid
+    public ArrayList<MyPoint> convertPoints(){
+        ArrayList<MyPoint> newPoints = new ArrayList<>();
+        
+        for (int x = 0; x < time.points.size(); x++){
+            MyPoint point = time.points.get(x);
+            int newY = (Constants.GRID_HEIGHT/Constants.SPACE)-point.y;
+            newPoints.add(new MyPoint(point.x, newY));
+        }
+
+        return newPoints;
+    }
+
+    //Draw point on center
     public void drawPoint(Graphics2D g2d, int x, int y, int r) {
         x = x-(r/2);
         y = y-(r/2);
