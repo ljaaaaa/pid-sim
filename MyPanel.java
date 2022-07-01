@@ -67,7 +67,7 @@ public class MyPanel extends JPanel {
         g2d.rotate(-Math.toRadians(270));
 
         //Graph
-        g2d.setColor(new Color(200, 200, 200));
+        g2d.setColor(new Color(220, 220, 220));
 
         //X-axis (up/down)
         for (int x = 0; x < Constants.GRID_WIDTH; x+=Constants.SPACE){
