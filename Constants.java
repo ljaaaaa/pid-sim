@@ -22,7 +22,7 @@ public class Constants {
 
     //PID
     public static final int TARGET = 20;
-    public static final double kP = 0.5;
+    public static final double kP = 0.8;
     public static final double kD = 0.0;
     public static final double kI = 0.0;
 }
