@@ -5,16 +5,12 @@ public class Constants {
     public static final int FRAME_HEIGHT = 550+38;
 
     //Grid size
-    public static final int GRID_WIDTH = 500;
+    public static final int GRID_WIDTH = 600;
     public static final int GRID_HEIGHT = 500;
 
-    //Number of lines on grid
-    public static final int GRID_LINES_X = 20;
-    public static final int GRID_LINES_Y = 20;
-
     //Spacing between lines on grid
-    public static final int SPACE = GRID_HEIGHT/GRID_LINES_Y;
+    public static final int SPACE = 20;
 
     //Extra space before starting grid
-    public static final int EXTRA = 50;
+    public static final int EXTRA = 25;
 }
