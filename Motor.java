@@ -3,9 +3,7 @@ public class Motor {
     double position;
     double target;
 
-    /*
-    Motor output = P*error + D*(slope at that point) + I*(total error over time)
-    */
+    //!!! - Motor output = P*error + D*(slope at that point) + I*(total error over time)
 
     public Motor(){
         target = Constants.TARGET;
