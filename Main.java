@@ -5,9 +5,11 @@ public class Main {
 
     MyPanel panel;
     MyTime time;
+    Motor motor;
 
     public Main(){
-        time = new MyTime();
+        motor = new Motor();
+        time = new MyTime(motor);
         panel = new MyPanel(time);
         setUpFrame();
     }
