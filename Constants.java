@@ -2,15 +2,15 @@ import java.awt.Color;
 
 public class Constants {
     //Screen sizes
-    public static final int FRAME_WIDTH = 900;
+    public static final int FRAME_WIDTH = 950;
     public static final int FRAME_HEIGHT = 550+38;
 
     //Grid size
-    public static final int GRID_WIDTH = 800;
+    public static final int GRID_WIDTH = 850;
     public static final int GRID_HEIGHT = 500;
 
     //Spacing between lines on grid
-    public static final int SPACE = 15;
+    public static final int SPACE = 20;
 
     //Extra space before starting grid
     public static final int EXTRA = 25;
@@ -22,13 +22,13 @@ public class Constants {
 
     //PID
     public static final double TARGET = 10;
-    public static final double kP = 1.5;
-    public static final double kD = 0.0;
+    public static final double kP = 1.9;
+    public static final double kD = 0.5;
     public static final double kI = 0.0;
 
     //Amount of time that passes each time Motor.getOutput() is run
-    public static final double PASS_TIME = 1;
+    public static final double PASS_TIME = 0.5;
 
     //Amount of times Motor.getOutput() is run
-    public static final int TIME = 100; 
+    public static final int TIME = 50; 
 }

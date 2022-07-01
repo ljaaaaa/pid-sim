@@ -18,8 +18,8 @@ public class MyTime {
     }
 
     public void passTime(double add){
-        motor.updatePosition(motor.getPosition() + motor.getOutput());
-
+        double output = motor.getOutput();
+        motor.updatePosition(motor.getPosition() + output);
         time += add;
 
         //Round time
