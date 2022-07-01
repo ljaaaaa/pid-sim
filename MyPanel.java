@@ -77,5 +77,10 @@ public class MyPanel extends JPanel {
         for (int x = Constants.SPACE; x <= Constants.GRID_HEIGHT; x+=Constants.SPACE){
             g2d.drawLine(0+xtra, x, Constants.GRID_WIDTH+xtra, x);
         }
+
+        //Target position
+        g2d.setColor(Constants.TARGET_COLOR);
+        int target_line = ((Constants.GRID_HEIGHT/Constants.SPACE)-Constants.TARGET)*Constants.SPACE;
+        g2d.drawLine(0+xtra, target_line, Constants.GRID_WIDTH+xtra, target_line);
     }
 }
