@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 public class Constants {
 
     //Screen sizes
@@ -13,4 +15,8 @@ public class Constants {
 
     //Extra space before starting grid
     public static final int EXTRA = 25;
+
+    //Color
+    public static final Color GREY = new Color(220, 220, 220);
+    public static final Color POINT_COLOR = new Color(225, 0, 0);
 }

@@ -24,7 +24,7 @@ public class MyPanel extends JPanel {
     //Draw all points in time.points
     public void drawPoints(Graphics2D g2d){
         int xtra = Constants.EXTRA;
-        g2d.setColor(new Color(255, 0, 0));
+        g2d.setColor(Constants.POINT_COLOR);
 
         ArrayList<MyPoint> newPoints = convertPoints();
 
@@ -67,7 +67,7 @@ public class MyPanel extends JPanel {
         g2d.rotate(-Math.toRadians(270));
 
         //Graph
-        g2d.setColor(new Color(220, 220, 220));
+        g2d.setColor(Constants.GREY);
 
         //X-axis (up/down)
         for (int x = 0; x < Constants.GRID_WIDTH; x+=Constants.SPACE){

@@ -7,7 +7,7 @@ public class MyTime {
     public MyTime() {
         points = new ArrayList<>();
 
-        for (int x = 0; x < 30; x++){
+        for (int x = 0; x < Constants.GRID_WIDTH/Constants.SPACE; x++){
             addPoint(x, x*x);
         }
     }   
