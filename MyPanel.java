@@ -1,8 +1,6 @@
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Color;
-
 public class MyPanel extends JPanel {
 
     public MyPanel(){
@@ -18,7 +16,6 @@ public class MyPanel extends JPanel {
     }
 
     public void drawGrid(Graphics2D g2d){
-
         int xtra = Constants.EXTRA;
 ;
         //X-axis (up/down)
@@ -31,11 +28,12 @@ public class MyPanel extends JPanel {
             g2d.drawLine(0+xtra, x*Constants.SPACE, Constants.GRID_WIDTH+xtra, x*Constants.SPACE);
         }
 
-        //Time & Motor Output
+        //Time
         g2d.drawString("Time", xtra, Constants.GRID_HEIGHT+15);
 
+        //Motor Output
         g2d.rotate(Math.toRadians(270));
         g2d.drawString("Motor Ouput", -Constants.GRID_HEIGHT, xtra-5);
-        g2d.rotate(-Math.toRadians(90));
+        g2d.rotate(-Math.toRadians(270));
     }
 }
