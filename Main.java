@@ -16,8 +16,8 @@ public class Main {
 
     //Simulates PID
     public void pid(){
-        for (int x = 0; x < 100; x+=1){
-            time.passTime(0.2);
+        for (int x = 0; x < Constants.TIME; x++){
+            time.passTime(Constants.PASS_TIME);
             System.out.println(motor.getPosition());
         }
         panel.repaint();

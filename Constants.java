@@ -10,7 +10,7 @@ public class Constants {
     public static final int GRID_HEIGHT = 500;
 
     //Spacing between lines on grid
-    public static final int SPACE = 30;
+    public static final int SPACE = 15;
 
     //Extra space before starting grid
     public static final int EXTRA = 25;
@@ -25,4 +25,10 @@ public class Constants {
     public static final double kP = 1.5;
     public static final double kD = 0.0;
     public static final double kI = 0.0;
+
+    //Amount of time that passes each time Motor.getOutput() is run
+    public static final double PASS_TIME = 1;
+
+    //Amount of times Motor.getOutput() is run
+    public static final int TIME = 100; 
 }
