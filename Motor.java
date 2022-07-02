@@ -16,10 +16,6 @@ public class Motor {
         double error = target - getPosition();
         double timeChange = Constants.PASS_TIME;
 
-        if (timeChange <= 0){
-            timeChange = 1;
-        }
-
         double errorRate = (error - lastError)/ timeChange;
         double output = Constants.kP * error + Constants.kD * errorRate;
 

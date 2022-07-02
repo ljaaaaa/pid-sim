@@ -23,7 +23,7 @@ public class Constants {
     //PID
     public static final double TARGET = 10;
     public static final double kP = 1.5;
-    public static final double kD = 0.0;
+    public static final double kD = 0.1;
     public static final double kI = 0.0;
 
     //Amount of time that passes each time Motor.getOutput() is run
