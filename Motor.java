@@ -3,7 +3,6 @@ public class Motor {
     double position;
     double target;
 
-    long lastTime;
     double lastError;
 
     //!!! - Motor output = P*error + D*(slope at that point) + I*(total error over time)
@@ -11,12 +10,11 @@ public class Motor {
     public Motor(){
         target = Constants.TARGET;
         lastError = 0;
-        lastTime = System.currentTimeMillis();
     }
 
     public double getOutputPD(){
         double error = target - getPosition();
-        double timeChange = System.currentTimeMillis() - lastTime;
+        double timeChange = Constants.PASS_TIME;
 
         if (timeChange <= 0){
             timeChange = 1;
@@ -26,7 +24,6 @@ public class Motor {
         double output = Constants.kP * error + Constants.kD * errorRate;
 
         lastError = error;
-        lastTime = System.currentTimeMillis();
                 
         return output;
     }
