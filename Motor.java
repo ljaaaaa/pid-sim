@@ -14,37 +14,29 @@ public class Motor {
         lastTime = System.currentTimeMillis();
     }
 
-    public double getOutput(){
+    public double getOutputPD(){
         double error = target - getPosition();
-        double errorRate = (error - lastError)/ (System.currentTimeMillis() - lastTime);
+        double timeChange = System.currentTimeMillis() - lastTime;
 
-        if (errorRate <= 0){
-            errorRate = 1;
+        if (timeChange <= 0){
+            timeChange = 1;
         }
 
+        double errorRate = (error - lastError)/ timeChange;
         double output = Constants.kP * error + Constants.kD * errorRate;
 
-        System.out.println("---");
-        System.out.println(error - lastError);
-        System.out.println(System.currentTimeMillis());
-        System.out.println(lastTime);
-        System.out.println(System.currentTimeMillis() - lastTime);
-        System.out.println(errorRate); //<- issue with this
-        System.out.println("---");
         lastError = error;
         lastTime = System.currentTimeMillis();
-        
-        
+                
         return output;
     }
 
-    /*
-    public double getOutput(){
+    
+    public double getOutputP(){
         double error = target - getPosition();
         double output = Constants.kP * error;
         return output;
     }
-    */
 
     public double getPosition(){
         return position;
