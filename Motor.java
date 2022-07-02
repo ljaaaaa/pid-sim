@@ -17,6 +17,11 @@ public class Motor {
     public double getOutput(){
         double error = target - getPosition();
         double errorRate = (error - lastError)/ (System.currentTimeMillis() - lastTime);
+
+        if (errorRate <= 0){
+            errorRate = 1;
+        }
+
         double output = Constants.kP * error + Constants.kD * errorRate;
 
         System.out.println("---");
@@ -29,9 +34,7 @@ public class Motor {
         lastError = error;
         lastTime = System.currentTimeMillis();
         
-        //System.out.println("---" + errorRate);
-        //System.out.println("pos: " + position);
-        //System.out.println("out: " + output);
+        
         return output;
     }
 
