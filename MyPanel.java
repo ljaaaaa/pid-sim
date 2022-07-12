@@ -44,7 +44,7 @@ public class MyPanel extends JPanel {
                 for (int x = 0; x < newPoints.size(); x++){
                         MyPoint point = newPoints.get(x);
                         drawPoint(g2d, point.x*Constants.SPACE+xtra, point.y*Constants.SPACE, 4);
-                }
+		}
         }
 
         //Convert points y-axis to flip so shows up properly on grid
@@ -88,14 +88,11 @@ public class MyPanel extends JPanel {
             //Y-axis (left/right)
             for (int x = Constants.SPACE; x <= Constants.GRID_HEIGHT; x+=Constants.SPACE){
                     g2d.drawLine(0+xtra, x, Constants.GRID_WIDTH+xtra, x);
-            
             }
 
             //Target position
             g2d.setColor(Constants.TARGET_COLOR);
-            int target_line = (int)((Constants.GRID_HEIGHT/Constants.SPACE)-Constants.TARGET)*Constants.SPACE;
-            System.out.println((Constants.GRID_HEIGHT/Constants.SPACE)-Constants.TARGET);
-            System.out.println(target_line);
+            int target_line = (int)((((double)Constants.GRID_HEIGHT/Constants.SPACE)-Constants.TARGET)*Constants.SPACE);
             g2d.drawLine(0+xtra, target_line, Constants.GRID_WIDTH+xtra, target_line);
         }
 }

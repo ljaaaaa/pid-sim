@@ -18,7 +18,7 @@ public class Main {
         public void pid(){
                 for (int x = 0; x < Constants.TIME; x++){
                     time.passTime(Constants.PASS_TIME);
-                    System.out.println(motor.getPosition());
+                    //System.out.println(motor.getPosition());
                 }
                 panel.repaint();
         }

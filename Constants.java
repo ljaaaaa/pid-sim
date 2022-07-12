@@ -10,7 +10,7 @@ public class Constants {
         public static final int GRID_HEIGHT = 500;
 
         //Spacing between lines on grid
-        public static final int SPACE = 80;
+        public static final int SPACE = 100;
 
         //Extra space before starting grid
         public static final int EXTRA = 25;
@@ -21,7 +21,7 @@ public class Constants {
         public static final Color TARGET_COLOR = new Color(0, 0, 255);
 
         //PID
-        public static final double TARGET = 1;
+        public static final double TARGET = 0.5;
         public static final double kP = 1.5;
         public static final double kD = 0.1;
         public static final double kI = 0.0;
