@@ -89,8 +89,10 @@ public class MyPanel extends JPanel {
             //        g2d.drawLine(0+xtra, x, Constants.GRID_WIDTH+xtra, x);
             //}
 	    
-
-
+		//Y-axis (left/right)
+            for (int x = Constants.GRID_WIDTH; x > 0; x-=Constants.SPACE){
+                    g2d.drawLine(0+xtra, x+xtra, Constants.GRID_WIDTH+xtra, x);
+            }
 
             //Target position
             g2d.setColor(Constants.TARGET_COLOR);
