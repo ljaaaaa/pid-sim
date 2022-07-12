@@ -38,7 +38,6 @@ public class MyPanel extends JPanel {
         //Draw all points in time.points
         public void drawPoints(Graphics2D g2d){
                 g2d.setColor(Constants.POINT_COLOR);
-
                 ArrayList<MyPoint> newPoints = convertPoints();
 
                 for (int x = 0; x < newPoints.size(); x++){
@@ -81,7 +80,7 @@ public class MyPanel extends JPanel {
             g2d.setColor(Constants.GREY);
 
             //X-axis (up/down)
-            for (int x = Constants.SPACE; x < Constants.GRID_WIDTH; x+=Constants.SPACE){
+            for (int x = 0; x < Constants.GRID_WIDTH; x+=Constants.SPACE){
                     g2d.drawLine(x+xtra, 0, x+xtra, Constants.GRID_HEIGHT);
             }
 
