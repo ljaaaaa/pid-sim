@@ -5,7 +5,7 @@ public class Motor {
 
     double lastError;
 
-    //!!! - Motor output = P*error + D*(slope at that point) + I*(total error over time)
+    //Motor output = P*error + D*(slope at that point) + I*(total error over time)
 
     public Motor(){
         target = Constants.TARGET;
