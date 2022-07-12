@@ -74,7 +74,7 @@ public class MyPanel extends JPanel {
 
         //Motor Output
         g2d.rotate(Math.toRadians(270));
-        g2d.drawString("Position", -Constants.GRID_HEIGHT, xtra-5);
+        g2d.drawString("Motor Output", -Constants.GRID_HEIGHT, xtra-5);
         g2d.rotate(-Math.toRadians(270));
 
         //Graph
