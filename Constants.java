@@ -10,7 +10,7 @@ public class Constants {
         public static final int GRID_HEIGHT = 500;
 
         //Spacing between lines on grid
-        public static final int SPACE = 150;
+        public static final int SPACE = 100;
 
         //Extra space before starting grid
         public static final int EXTRA = 25;

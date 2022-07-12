@@ -81,7 +81,7 @@ public class MyPanel extends JPanel {
             g2d.setColor(Constants.GREY);
 
             //X-axis (up/down)
-            for (int x = 0; x < Constants.GRID_WIDTH; x+=Constants.SPACE){
+            for (int x = Constants.SPACE; x < Constants.GRID_WIDTH; x+=Constants.SPACE){
                     g2d.drawLine(x+xtra, 0, x+xtra, Constants.GRID_HEIGHT);
             }
 
