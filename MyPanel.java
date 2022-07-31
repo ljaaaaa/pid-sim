@@ -66,13 +66,13 @@ public class MyPanel extends JPanel {
             	g2d.setColor(Constants.GREY);
 
             	//X-axis (up/down)
-            	for (int x = 0; x < Constants.GRID_WIDTH; x+=Constants.SPACE){
+            	for (int x = 0; x <= Constants.GRID_WIDTH; x+=Constants.SPACE){
             	        g2d.drawLine(x+xtra, 0, x+xtra, Constants.GRID_HEIGHT);
             	}	
 
 		//Y-axis (left/right)
-            	for (int x = Constants.GRID_HEIGHT; x > 0; x-=Constants.SPACE){
-          		g2d.drawLine(0, x, Constants.GRID_WIDTH+xtra, x);
+            	for (int x = Constants.GRID_HEIGHT; x >= 0; x-=Constants.SPACE){
+          		g2d.drawLine(0+xtra, x, Constants.GRID_WIDTH+xtra, x);
 		}
 
             	//Target position
