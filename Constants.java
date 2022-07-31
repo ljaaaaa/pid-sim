@@ -3,7 +3,7 @@ import java.awt.Color;
 public class Constants {
         //Screen sizes
         public static final int FRAME_WIDTH = 950;
-        public static final int FRAME_HEIGHT = 1000+38;
+        public static final int FRAME_HEIGHT = 700+38;
 
         //Grid size
         public static final int GRID_WIDTH = 850;

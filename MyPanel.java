@@ -93,8 +93,8 @@ public class MyPanel extends JPanel {
 		//drawPoint(g2d, point.x*Constants.SPACE+xtra, point.y*Constants.SPACE, 4);
 
 		//Y-axis (left/right)
-            	for (int x = 0; x < Constants.GRID_WIDTH; x+=Constants.SPACE){
-           		g2d.drawLine(0+xtra, x+xtra, Constants.GRID_WIDTH+xtra, x+xtra);
+            	for (int x = Constants.GRID_HEIGHT; x > 0; x-=Constants.SPACE){
+          		g2d.drawLine(0+xtra, x, Constants.GRID_WIDTH-xtra, x);
 		}
 
             	//Target position
