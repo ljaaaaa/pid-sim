@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 public class MyPanel extends JPanel {
-        int xtra = Constants.EXTRA;
+	int xtra = Constants.EXTRA;
         MyTime time;
 
         public MyPanel(MyTime time){
@@ -68,35 +68,38 @@ public class MyPanel extends JPanel {
 
         //Draw initial grid base
         public void drawGrid(Graphics2D g2d){
-            //Time
-            g2d.drawString("Time", xtra, Constants.GRID_HEIGHT+15);
+       		//Time
+            	g2d.drawString("Time", xtra, Constants.GRID_HEIGHT+15);
 
-            //Motor Output
-            g2d.rotate(Math.toRadians(270));
-            g2d.drawString("Motor Output", -Constants.GRID_HEIGHT, xtra-5);
-            g2d.rotate(-Math.toRadians(270));
+            	//Motor Output
+            	g2d.rotate(Math.toRadians(270));
+            	g2d.drawString("Motor Output", -Constants.GRID_HEIGHT, xtra-5);
+            	g2d.rotate(-Math.toRadians(270));
 
-            //Graph
-            g2d.setColor(Constants.GREY);
+            	//Graph
+            	g2d.setColor(Constants.GREY);
 
-            //X-axis (up/down)
-            for (int x = 0; x < Constants.GRID_WIDTH; x+=Constants.SPACE){
-                    g2d.drawLine(x+xtra, 0, x+xtra, Constants.GRID_HEIGHT);
-            }
+            	//X-axis (up/down)
+            	for (int x = 0; x < Constants.GRID_WIDTH; x+=Constants.SPACE){
+            	        g2d.drawLine(x+xtra, 0, x+xtra, Constants.GRID_HEIGHT);
+            	}
 
-            //Y-axis (left/right)
-            //for (int x = Constants.SPACE; x <= Constants.GRID_HEIGHT; x+=Constants.SPACE){
-            //        g2d.drawLine(0+xtra, x, Constants.GRID_WIDTH+xtra, x);
-            //}
-	    
+            	//Y-axis (left/right)
+            	//for (int x = Constants.SPACE; x <= Constants.GRID_HEIGHT; x+=Constants.SPACE){
+            	//        g2d.drawLine(0+xtra, x, Constants.GRID_WIDTH+xtra, x);
+            	//}
+		
+		//double newY = (Constants.GRID_HEIGHT/Constants.SPACE)-point.y 
+		//drawPoint(g2d, point.x*Constants.SPACE+xtra, point.y*Constants.SPACE, 4);
+
 		//Y-axis (left/right)
-            for (int x = Constants.GRID_WIDTH; x > 0; x-=Constants.SPACE){
-                    g2d.drawLine(0+xtra, x+xtra, Constants.GRID_WIDTH+xtra, x);
-            }
+            	for (int x = 0; x < Constants.GRID_WIDTH; x+=Constants.SPACE){
+           		g2d.drawLine(0+xtra, x+xtra, Constants.GRID_WIDTH+xtra, x+xtra);
+		}
 
-            //Target position
-            g2d.setColor(Constants.TARGET_COLOR);
-            int target_line = (int)((((double)Constants.GRID_HEIGHT/Constants.SPACE)-Constants.TARGET)*Constants.SPACE);
-            g2d.drawLine(0+xtra, target_line, Constants.GRID_WIDTH+xtra, target_line);
+            	//Target position
+            	g2d.setColor(Constants.TARGET_COLOR);
+            	int target_line = (int)((((double)Constants.GRID_HEIGHT/Constants.SPACE)-Constants.TARGET)*Constants.SPACE);
+            	g2d.drawLine(0+xtra, target_line, Constants.GRID_WIDTH+xtra, target_line);
         }
 }
