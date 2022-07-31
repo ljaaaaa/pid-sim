@@ -2,11 +2,11 @@ import java.awt.Color;
 
 public class Constants {
         //Screen sizes
-        public static final int FRAME_WIDTH = 950;
+        public static final int FRAME_WIDTH = 1250;
         public static final int FRAME_HEIGHT = 550+38;
 
         //Grid size
-        public static final int GRID_WIDTH = 850;
+        public static final int GRID_WIDTH = 1150;
         public static final int GRID_HEIGHT = 500;
 
         //Spacing between lines on grid
@@ -21,8 +21,8 @@ public class Constants {
         public static final Color TARGET_COLOR = new Color(0, 0, 255);
 
         //PID
-        public static final double TARGET = 0.8;
-        public static final double kP = 1.5;
+        public static final double TARGET = 1;
+        public static final double kP = 1.8;
         public static final double kD = 0.1;
         public static final double kI = 0.0;
 

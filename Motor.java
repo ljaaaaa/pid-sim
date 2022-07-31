@@ -1,7 +1,7 @@
 public class Motor {
         //Currect position
         private double position;
-        private double target;
+        private double target; //Same as Constants.TARGET
 
         private double lastError;
 
@@ -16,6 +16,7 @@ public class Motor {
 		return getOutputP();
 	}
 
+	//Get P and D output
         private double getOutputPD(){
                 double error = target - getPosition();
                 double timeChange = Constants.PASS_TIME;
@@ -27,8 +28,8 @@ public class Motor {
                         
                 return output;
         }
-
         
+	//Get P output
         private double getOutputP(){
                 double error = target - getPosition();
                 double output = Constants.kP * error;
