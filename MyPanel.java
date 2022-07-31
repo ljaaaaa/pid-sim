@@ -24,13 +24,13 @@ public class MyPanel extends JPanel {
         //Connect two points with a line
         public void connectPoints(Graphics2D g2d){
                 g2d.setColor(Constants.POINT_COLOR);
-                ArrayList<MyPoint> newPoints = convertPoints();
+                ArrayList<MyPoint> points = time.points;
 
-                for (int x = 0; x < newPoints.size()-1; x++){
-                        double x1 = newPoints.get(x).x*Constants.SPACE+xtra;
-                        double y1 = newPoints.get(x).y*Constants.SPACE;
-                        double x2 = newPoints.get(x+1).x*Constants.SPACE+xtra;
-                        double y2 = newPoints.get(x+1).y*Constants.SPACE;
+                for (int x = 0; x < points.size()-1; x++){
+                        double x1 = points.get(x).x*Constants.SPACE+xtra;
+                        double y1 = Constants.GRID_HEIGHT-points.get(x).y*Constants.SPACE;
+                        double x2 = points.get(x+1).x*Constants.SPACE+xtra;
+                        double y2 = Constants.GRID_HEIGHT-points.get(x+1).y*Constants.SPACE;
                         g2d.drawLine((int)x1, (int)y1, (int)x2, (int)y2);
                 }
         }
@@ -38,28 +38,15 @@ public class MyPanel extends JPanel {
         //Draw all points in time.points
         public void drawPoints(Graphics2D g2d){
                 g2d.setColor(Constants.POINT_COLOR);
-                ArrayList<MyPoint> newPoints = convertPoints();
+                ArrayList<MyPoint> points = time.points;
 
-                for (int x = 0; x < newPoints.size(); x++){
-                        MyPoint point = newPoints.get(x);
-                        drawPoint(g2d, point.x*Constants.SPACE+xtra, point.y*Constants.SPACE, 4);
+                for (int x = 0; x < points.size(); x++){
+                        MyPoint point = points.get(x);
+                        drawPoint(g2d, point.x*Constants.SPACE+xtra, Constants.GRID_HEIGHT-point.y*Constants.SPACE, 4);
 		}
-        }
+        }	
 
-        //Convert points y-axis to flip so shows up properly on grid
-        public ArrayList<MyPoint> convertPoints(){
-                ArrayList<MyPoint> newPoints = new ArrayList<>();
-                
-                for (int x = 0; x < time.points.size(); x++){
-                        MyPoint point = time.points.get(x);
-                        double newY = (Constants.GRID_HEIGHT/Constants.SPACE)-point.y;
-                        newPoints.add(new MyPoint(point.x, newY));
-                }
-
-                return newPoints;
-        }
-
-        //Draw point on center
+	//Draw point on center
         public void drawPoint(Graphics2D g2d, double x, double y, int r) {
                 x = x-(r/2);
                 y = y-(r/2);
@@ -68,33 +55,24 @@ public class MyPanel extends JPanel {
 
         //Draw initial grid base
         public void drawGrid(Graphics2D g2d){
-       		//Time
+       		//Time text
             	g2d.drawString("Time", xtra, Constants.GRID_HEIGHT+15);
 
-            	//Motor Output
+            	//Motor Output text
             	g2d.rotate(Math.toRadians(270));
             	g2d.drawString("Motor Output", -Constants.GRID_HEIGHT, xtra-5);
             	g2d.rotate(-Math.toRadians(270));
 
-            	//Graph
             	g2d.setColor(Constants.GREY);
 
             	//X-axis (up/down)
             	for (int x = 0; x < Constants.GRID_WIDTH; x+=Constants.SPACE){
             	        g2d.drawLine(x+xtra, 0, x+xtra, Constants.GRID_HEIGHT);
-            	}
-
-            	//Y-axis (left/right)
-            	//for (int x = Constants.SPACE; x <= Constants.GRID_HEIGHT; x+=Constants.SPACE){
-            	//        g2d.drawLine(0+xtra, x, Constants.GRID_WIDTH+xtra, x);
-            	//}
-		
-		//double newY = (Constants.GRID_HEIGHT/Constants.SPACE)-point.y 
-		//drawPoint(g2d, point.x*Constants.SPACE+xtra, point.y*Constants.SPACE, 4);
+            	}	
 
 		//Y-axis (left/right)
             	for (int x = Constants.GRID_HEIGHT; x > 0; x-=Constants.SPACE){
-          		g2d.drawLine(0+xtra, x, Constants.GRID_WIDTH-xtra, x);
+          		g2d.drawLine(0, x, Constants.GRID_WIDTH+xtra, x);
 		}
 
             	//Target position
