@@ -18,7 +18,7 @@ public class MyTime {
         }
 
         public void passTime(double add){
-                double output = motor.getOutputPD();
+                double output = motor.getOutput();
                 motor.updatePosition(motor.getPosition() + output);
                 time += add;
 

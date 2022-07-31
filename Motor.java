@@ -1,9 +1,9 @@
 public class Motor {
         //Currect position
-        double position;
-        double target;
+        private double position;
+        private double target;
 
-        double lastError;
+        private double lastError;
 
         //Motor output = P*error + D*(slope at that point) + I*(total error over time)
 
@@ -12,7 +12,11 @@ public class Motor {
                 lastError = 0;
         }
 
-        public double getOutputPD(){
+	public double getOutput(){
+		return getOutputP();
+	}
+
+        private double getOutputPD(){
                 double error = target - getPosition();
                 double timeChange = Constants.PASS_TIME;
 
@@ -25,16 +29,18 @@ public class Motor {
         }
 
         
-        public double getOutputP(){
+        private double getOutputP(){
                 double error = target - getPosition();
                 double output = Constants.kP * error;
                 return output;
         }
 
+	//Setter for position
         public double getPosition(){
                 return position;
         }
 
+	//Getter for position
         public void updatePosition(double position){
                 this.position = position;
         }
