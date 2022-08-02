@@ -28,19 +28,6 @@ public class GraphPanel extends JPanel {
                 connectPoints(g2d);
         }
 
-        //Connect two points with a line
-        public void connectPoints(Graphics2D g2d){
-                g2d.setColor(Constants.Colors.POINT);
-
-                for (int x = 0; x < points.size()-1; x++){
-                        double x1 = points.get(x).x * Constants.SPACE + xtra;
-                        double y1 = getHeight() - points.get(x).y * Constants.SPACE;
-                        double x2 = points.get(x+1).x * Constants.SPACE + xtra;
-                        double y2 = getHeight() - points.get(x+1).y * Constants.SPACE;
-                        g2d.drawLine((int)x1, (int)y1, (int)x2, (int)y2);
-                }
-        }
-
         //Draw all points in time.points
         public void drawPoints(Graphics2D g2d){
                 g2d.setColor(Constants.Colors.POINT);
