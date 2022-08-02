@@ -4,11 +4,11 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 import java.util.ArrayList;
 
-public class Graph extends JPanel {
+public class GraphPanel extends JPanel {
 	int xtra;
 	public ArrayList<MyPoint> points;
 
-        public Graph(){
+        public GraphPanel(){
         	points = new ArrayList<>();
         	xtra = Constants.EXTRA;
 	}

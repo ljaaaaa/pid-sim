@@ -2,8 +2,8 @@ import java.awt.Color;
 
 public class Constants {
         //Screen sizes
-        public static final int FRAME_WIDTH = 1250;
-        public static final int FRAME_HEIGHT = 550+38;
+        public static final int FRAME_WIDTH = 1000;
+        public static final int FRAME_HEIGHT = 750+38;
 
         //Spacing between lines on grid
         public static final int SPACE = 30;
@@ -11,9 +11,13 @@ public class Constants {
 	//Extra space before starting grid
 	public static final int EXTRA = 25;
 
-	//Grid sizes
+	//GraphPanel sizes
         public static final int GRID_WIDTH = FRAME_WIDTH-EXTRA;
-        public static final int GRID_HEIGHT = (int)(FRAME_HEIGHT/2.2);
+        public static final int GRID_HEIGHT = (int)(FRAME_HEIGHT/2.5);
+
+	//CarPanel sizes
+	public static final int CAR_WIDTH = FRAME_WIDTH-EXTRA;
+        public static final int CAR_HEIGHT = FRAME_HEIGHT-GRID_HEIGHT;
 
         //Color
         public static final Color GREY = new Color(230, 230, 230);
