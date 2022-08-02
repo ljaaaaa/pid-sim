@@ -42,22 +42,4 @@ public class Car {
 
 		return output;
 	}
-
-	//Get new acceleration with P
-	public double getAccelerationP(){
-		double error = Constants.TARGET - s;
-
-    		return Constants.PID.kP * error;
-	}
-
-	//Get new acceleration with P and D
-	public double getAccelerationPD(){
-		double error = Constants.TARGET - s;
-    		double errorRate = (error - lastError)/ t;
-    		double output = Constants.PID.kP * error + Constants.PID.kD * errorRate;
-
-		lastError = error;
-
-		return output;
-	}
 }

@@ -2,11 +2,11 @@ import java.awt.Color;
 
 public class Constants {
         //Screen sizes
-        public static final int FRAME_WIDTH = 1300;
+        public static final int FRAME_WIDTH = 800;
         public static final int FRAME_HEIGHT = 450+38;
 
         //Spacing between lines on grid
-        public static final int SPACE = 10;
+        public static final int SPACE = 12;
 
 	//Target for car to reach in meters
 	public static final double TARGET = 3;
