@@ -24,8 +24,8 @@ public class Constants {
 
         //PID constants
 	public static class PID {
-        	public static final double kP = 0.01;
-        	public static final double kD = 0.02;
+        	public static final double kP = 0.8;
+        	public static final double kD = 0.5;
         	public static final double kI = 0.0;
 	}
 }

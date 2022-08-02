@@ -23,13 +23,11 @@ public class Main {
 	public void moveCar(){
 		double pDiv = 10; //Number of points in each square
 		for (int x = 0; x < (pDiv/Constants.SPACE)*stPanel.getWidth(); x++){
-		//for (int x = 0; x < 10000; x++){	
 			car.passTime();
 			stPanel.points.add(new MyPoint(x/pDiv, car.s));
 			vtPanel.points.add(new MyPoint(x/pDiv, car.v));
 			atPanel.points.add(new MyPoint(x/pDiv, car.a));
 		}
-
 		paintPanels();
 	}
 
