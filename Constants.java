@@ -3,10 +3,10 @@ import java.awt.Color;
 public class Constants {
         //Screen sizes
         public static final int FRAME_WIDTH = 800;
-        public static final int FRAME_HEIGHT = 450+38;
+        public static final int FRAME_HEIGHT = 550+38;
 
         //Spacing between lines on grid
-        public static final int SPACE = 12;
+        public static final int SPACE = 10;
 
 	//Target for car to reach in meters
 	public static final double TARGET = 3;
@@ -26,6 +26,6 @@ public class Constants {
 	public static class PID {
         	public static final double kP = 0.8;
         	public static final double kD = 0.3;
-        	public static final double kI = 0.1;
+        	public static final double kI = 0.001;
 	}
 }

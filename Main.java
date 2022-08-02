@@ -1,5 +1,6 @@
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import java.awt.GridLayout;
 
 public class Main {
@@ -10,12 +11,20 @@ public class Main {
 	public GraphPanel vtPanel; //Speed vs. time
 	public GraphPanel atPanel; //Acceleration vs. time panel
 
+	public JPanel mainPanel;
+	public JPanel sidePanel;
+
         public Main(){
                 car = new Car();
-                stPanel = new GraphPanel("Time", "Position", car);
+                
+		stPanel = new GraphPanel("Time", "Position", car);
 		vtPanel = new GraphPanel("Time", "Speed", car);
 		atPanel = new GraphPanel("Time", "Acceleration", car);
 		carPanel = new CarPanel(car);
+
+		mainPanel = new JPanel();
+		sidePanel = new JPanel();
+
                 setUpFrame();
                 moveCar();
         }

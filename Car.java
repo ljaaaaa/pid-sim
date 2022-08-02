@@ -25,7 +25,7 @@ public class Car {
                 v = v + a * t;
 
 		//Update acceleration using PID
-                a = getAccelerationPD();
+                a = getAccelerationPID();
 	}
 	
 	//Get new acceleration using PID
