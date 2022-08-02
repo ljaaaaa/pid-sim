@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 public class MyPanel extends JPanel {
 	int xtra = Constants.EXTRA;
-        MyTime time;
+        //MyTime time;
 
         public MyPanel(MyTime time){
-                this.time = time;
+        //        this.time = time;
         }
 
         @Override
