@@ -2,22 +2,25 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Main {
-        public MyPanel graphPanel;
-        public MyTime time;
+        public Graph graphPanel;
         public Motor motor;
 
         public Main(){
                 motor = new Motor();
-                time = new MyTime(motor);
-                graphPanel = new MyPanel(time);
+                graphPanel = new Graph();
                 setUpFrame();
                 pid();
         }
 
         //Simulates PID
         public void pid(){
-                for (int x = 0; x < Constants.TIME; x++){
-                    time.passTime(Constants.PASS_TIME);
+		int numPoints = (int) (Constants.GRID_WIDTH / (Constants.SPACE / Constants.PASS_TIME));
+                for (int x = 0; x < numPoints; x++){
+                	double time = Math.round(x * Constants.PASS_TIME * 100.0) / 100.0; //Increase time and round
+
+			motor.updatePosition(motor.getPosition() + motor.getOutput());//Add output to position
+
+			graphPanel.points.add(new MyPoint(time, motor.getPosition())); //Add new time and output to graph
                 }
                 graphPanel.repaint();
         }

@@ -4,12 +4,12 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 import java.util.ArrayList;
 
-public class MyPanel extends JPanel {
+public class Graph extends JPanel {
 	int xtra = Constants.EXTRA;
-        //MyTime time;
+	public ArrayList<MyPoint> points;
 
-        public MyPanel(MyTime time){
-        //        this.time = time;
+        public Graph(){
+        	points = new ArrayList<>();
         }
 
         @Override
@@ -28,7 +28,6 @@ public class MyPanel extends JPanel {
         //Connect two points with a line
         public void connectPoints(Graphics2D g2d){
                 g2d.setColor(Constants.POINT_COLOR);
-                ArrayList<MyPoint> points = time.points;
 
                 for (int x = 0; x < points.size()-1; x++){
                         double x1 = points.get(x).x*Constants.SPACE+xtra;
@@ -42,8 +41,7 @@ public class MyPanel extends JPanel {
         //Draw all points in time.points
         public void drawPoints(Graphics2D g2d){
                 g2d.setColor(Constants.POINT_COLOR);
-                ArrayList<MyPoint> points = time.points;
-
+                
                 for (int x = 0; x < points.size(); x++){
                         MyPoint point = points.get(x);
                         drawPoint(g2d, point.x*Constants.SPACE+xtra, Constants.GRID_HEIGHT-point.y*Constants.SPACE, 4);
