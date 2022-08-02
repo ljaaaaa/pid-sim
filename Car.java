@@ -37,7 +37,7 @@ public class Car {
 			totalError += error * t;
 		}
 
-		output = (Constants.kP * error) + (Constants.kI * totalError) + (Constants.kD * errorRate);
+		double output = (Constants.PID.kP * error) + (Constants.PID.kI * totalError) + (Constants.PID.kD * errorRate);
 		lastError = error;
 
 		return output;
