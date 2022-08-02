@@ -6,11 +6,20 @@ import java.util.ArrayList;
 
 public class GraphPanel extends JPanel {
 	int xtra;
+	String xAxis;
+	String yAxis;
 	public ArrayList<MyPoint> points;
 
-        public GraphPanel(){
-        	points = new ArrayList<>();
-        	xtra = 20; //Space for text
+        public GraphPanel(String xAxis, String yAxis){
+        	//Points list specific to graph
+		points = new ArrayList<>();
+		
+		//Axis names
+		this.xAxis = xAxis;
+		this.yAxis = yAxis;
+
+		//Extra space before graphing for text
+        	xtra = 20;
 	}
 
         @Override
@@ -25,7 +34,6 @@ public class GraphPanel extends JPanel {
 		//Grid and points
                 drawGrid(g2d);
                 drawPoints(g2d);
-                connectPoints(g2d);
         }
 
         //Draw all points in time.points
@@ -34,7 +42,7 @@ public class GraphPanel extends JPanel {
                 
                 for (int x = 0; x < points.size(); x++){
                         MyPoint point = points.get(x);
-                        drawPoint(g2d, point.x * Constants.SPACE+xtra, getHeight() - point.y * Constants.SPACE, 4);
+                        drawPoint(g2d, point.x * Constants.SPACE + xtra, getHeight() - point.y * Constants.SPACE - xtra, 4);
 		}
         }	
 
@@ -47,11 +55,11 @@ public class GraphPanel extends JPanel {
         public void drawGrid(Graphics2D g2d){
        		//Time text
 		g2d.setColor(Color.BLACK);
-            	g2d.drawString("Time", xtra, getHeight()-5);
+            	g2d.drawString(xAxis, xtra, getHeight()-5);
 
             	//Motor Output text
             	g2d.rotate(Math.toRadians(270));
-            	g2d.drawString("Acceleration", -getHeight()+xtra, xtra-5);
+            	g2d.drawString(yAxis, -getHeight()+xtra, xtra-5);
             	g2d.rotate(-Math.toRadians(270));
 
             	g2d.setColor(Constants.Colors.GREY_LOW);

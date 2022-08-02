@@ -6,7 +6,7 @@ public class Constants {
         public static final int FRAME_HEIGHT = 750+38;
 
         //Spacing between lines on grid
-        public static final int SPACE = 15;
+        public static final int SPACE = 20;
 
 	//Target for car to reach
 	public static final int TARGET = 3;

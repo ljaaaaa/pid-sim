@@ -12,16 +12,15 @@ public class Main {
 
         public Main(){
                 car = new Car();
-                stPanel = new GraphPanel();
-		vtPanel = new GraphPanel();
-		atPanel = new GraphPanel();
+                stPanel = new GraphPanel("Time", "Position");
+		vtPanel = new GraphPanel("Time", "Speed");
+		atPanel = new GraphPanel("Time", "Acceleration");
 		carPanel = new CarPanel(car);
                 setUpFrame();
                 moveCar();
         }
 
 	public void moveCar(){
-		car.move();
 		paintPanels();
 	}
 
