@@ -23,7 +23,7 @@ public class Main {
 
 	public void moveCar(){
 		for (int x = 0; x < 2000/Constants.SPACE; x++){
-			stPanel.points.add(new MyPoint(x+1, car.move()));
+			stPanel.points.add(new MyPoint(x/2.0, car.move()));
 		}
 
 		paintPanels();
