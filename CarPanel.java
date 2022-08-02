@@ -1,7 +1,6 @@
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Color;
 
 public class CarPanel extends JPanel {
 	public Car car;
@@ -36,7 +35,7 @@ public class CarPanel extends JPanel {
 		int xtra = 200; //Xtra space for car
 
 		//Box
-		g2d.setColor(Color.RED);
+		g2d.setColor(Constants.Colors.CAR);
 		g2d.fillRect((int)(car.s - carWidth)+200, groundLevel - carHeight - xtra/20, carWidth, carHeight);
 	
 		//Wheels

@@ -7,7 +7,7 @@ public class Car {
 
         public Car(){
         	t = 0.1; //Updated 10 times a second
-		v = 1.0; //Speed 1 m/s
+		v = 0.0; //Speed 1 m/s
 		s = 0.0; //Starting position is 0 
 		a = 0.0; //Accelerating initially set to 0
 	}
@@ -18,13 +18,14 @@ public class Car {
                 s += (v * t) + (1/2) * a * (t*t);
 
                 //Round s to two decimal places
-                s = Math.round(s * 100.0) / 100.0;
+                //s = Math.round(s * 100.0) / 100.0;
 
                 //Update speed v
                 v = v + a * t;
 
 		//Update acceleration using PID
                 a = getAccelerationP();
+		System.out.println(s);
 	}
 
 	//Get new acceleration with P
