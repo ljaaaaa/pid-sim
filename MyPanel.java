@@ -1,6 +1,7 @@
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Color;
 import java.util.ArrayList;
 
 public class MyPanel extends JPanel {
@@ -15,6 +16,9 @@ public class MyPanel extends JPanel {
         protected void paintComponent(Graphics g){
                 super.paintComponent(g);
                 Graphics2D g2d = (Graphics2D)g;
+
+		g2d.setColor(Constants.GREY2);
+		g2d.fillRect(0, 0, getWidth(), getHeight());
 
                 drawGrid(g2d);
                 drawPoints(g2d);
@@ -56,6 +60,7 @@ public class MyPanel extends JPanel {
         //Draw initial grid base
         public void drawGrid(Graphics2D g2d){
        		//Time text
+		g2d.setColor(Color.BLACK);
             	g2d.drawString("Time", xtra, Constants.GRID_HEIGHT+15);
 
             	//Motor Output text

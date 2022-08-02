@@ -2,14 +2,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Main {
-        public MyPanel panel;
+        public MyPanel graphPanel;
         public MyTime time;
         public Motor motor;
 
         public Main(){
                 motor = new Motor();
                 time = new MyTime(motor);
-                panel = new MyPanel(time);
+                graphPanel = new MyPanel(time);
                 setUpFrame();
                 pid();
         }
@@ -19,7 +19,7 @@ public class Main {
                 for (int x = 0; x < Constants.TIME; x++){
                     time.passTime(Constants.PASS_TIME);
                 }
-                panel.repaint();
+                graphPanel.repaint();
         }
 
         public void setUpFrame(){
@@ -28,8 +28,8 @@ public class Main {
                 f.setSize(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
                 f.setLayout(null);
                 
-                f.add(panel);
-                panel.setBounds(Constants.EXTRA, 0, Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
+                f.add(graphPanel);
+                graphPanel.setBounds(0, 0, Constants.GRID_WIDTH+25, Constants.GRID_HEIGHT+25);
 
                 f.setLocationRelativeTo(null);
                 f.setResizable(false);

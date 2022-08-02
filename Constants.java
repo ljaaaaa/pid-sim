@@ -6,17 +6,18 @@ public class Constants {
         public static final int FRAME_HEIGHT = 550+38;
 
         //Grid size
-        public static final int GRID_WIDTH = 1150;
-        public static final int GRID_HEIGHT = 500;
+        public static final int GRID_WIDTH = FRAME_WIDTH/2;
+        public static final int GRID_HEIGHT = FRAME_HEIGHT/2;
 
         //Spacing between lines on grid
-        public static final int SPACE = 80;
+        public static final int SPACE = 20;
 
         //Extra space before starting grid
         public static final int EXTRA = 25;
 
         //Color
-        public static final Color GREY = new Color(200, 200, 200);
+        public static final Color GREY = new Color(230, 230, 230);
+	public static final Color GREY2 = new Color(185, 185, 185);
         public static final Color POINT_COLOR = new Color(255, 0, 0);
         public static final Color TARGET_COLOR = new Color(0, 0, 255);
 
