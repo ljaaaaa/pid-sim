@@ -14,7 +14,16 @@ public class Car {
 	}
 
 	//Passes time t
-	public void move(){
-			
+	public double move(){
+		//Update position s
+		s += (v * t) + (1/2) * a * (t*t);
+
+		//Round s to two decimal places
+		s = Math.round(s * 100.0) / 100.0;
+
+		//Update speed v
+		v = v + a * t;
+
+		return s;
 	}
 }

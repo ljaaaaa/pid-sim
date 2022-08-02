@@ -8,7 +8,7 @@ public class Constants {
         //Spacing between lines on grid
         public static final int SPACE = 20;
 
-	//Target for car to reach
+	//Target for car to reach in meters
 	public static final int TARGET = 3;
 	
         //Color
@@ -16,7 +16,7 @@ public class Constants {
         	public static final Color GREY_LOW = new Color(230, 230, 230);
 		public static final Color GREY_MED = new Color(190, 190, 190);
        		public static final Color GREY_HIGH = new Color(150, 150, 150);
-
+		public static final Color BLACK = new Color(45, 45, 45);
 		public static final Color POINT = new Color(255, 0, 0);
         	public static final Color TARGET = new Color(0, 0, 255);
 	}

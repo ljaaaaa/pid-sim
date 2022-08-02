@@ -5,14 +5,16 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 public class GraphPanel extends JPanel {
-	int xtra;
-	String xAxis;
-	String yAxis;
+	public int xtra;
+	public String xAxis;
+	public String yAxis;
+	public Car car;
 	public ArrayList<MyPoint> points;
 
-        public GraphPanel(String xAxis, String yAxis){
+        public GraphPanel(String xAxis, String yAxis, Car car){
         	//Points list specific to graph
 		points = new ArrayList<>();
+		this.car = car;
 		
 		//Axis names
 		this.xAxis = xAxis;
@@ -34,6 +36,10 @@ public class GraphPanel extends JPanel {
 		//Grid and points
                 drawGrid(g2d);
                 drawPoints(g2d);
+
+		if (yAxis.equals("Position")){
+			drawTargetLine(g2d);
+		}
         }
 
         //Draw all points in time.points
@@ -55,11 +61,11 @@ public class GraphPanel extends JPanel {
         public void drawGrid(Graphics2D g2d){
        		//Time text
 		g2d.setColor(Color.BLACK);
-            	g2d.drawString(xAxis, xtra, getHeight()-5);
+            	g2d.drawString(xAxis + " - " + car.t, xtra, getHeight()-5);
 
             	//Motor Output text
             	g2d.rotate(Math.toRadians(270));
-            	g2d.drawString(yAxis, -getHeight()+xtra, xtra-5);
+            	g2d.drawString(yAxis + " - " + car.t, -getHeight()+xtra, xtra-5);
             	g2d.rotate(-Math.toRadians(270));
 
             	g2d.setColor(Constants.Colors.GREY_LOW);
@@ -73,11 +79,13 @@ public class GraphPanel extends JPanel {
             	for (int x = getHeight()-xtra; x >= 0; x-=Constants.SPACE){
           		g2d.drawLine(0+xtra, x, getWidth() +xtra, x);
 		}
-
-            	//Target position
-            	int target_line = (int)((((double)getHeight()/Constants.SPACE)-Constants.TARGET)*Constants.SPACE);
-            	
-		g2d.setColor(Constants.Colors.TARGET);
-		g2d.drawLine(0+xtra, target_line-xtra, getWidth() + xtra, target_line-xtra);
         }
+
+	//Draw target line if position vs. time graph
+	public void drawTargetLine(Graphics2D g2d){
+		int target_line = (int)((((double)getHeight()/Constants.SPACE)-Constants.TARGET)*Constants.SPACE);
+
+                g2d.setColor(Constants.Colors.TARGET);
+                g2d.drawLine(0+xtra, target_line-xtra, getWidth() + xtra, target_line-xtra);
+	}
 }

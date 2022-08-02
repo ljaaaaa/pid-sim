@@ -1,3 +1,4 @@
+import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import java.awt.GridLayout;
@@ -12,15 +13,19 @@ public class Main {
 
         public Main(){
                 car = new Car();
-                stPanel = new GraphPanel("Time", "Position");
-		vtPanel = new GraphPanel("Time", "Speed");
-		atPanel = new GraphPanel("Time", "Acceleration");
+                stPanel = new GraphPanel("Time", "Position", car);
+		vtPanel = new GraphPanel("Time", "Speed", car);
+		atPanel = new GraphPanel("Time", "Acceleration", car);
 		carPanel = new CarPanel(car);
                 setUpFrame();
                 moveCar();
         }
 
 	public void moveCar(){
+		for (int x = 0; x < 2000/Constants.SPACE; x++){
+			stPanel.points.add(new MyPoint(x+1, car.move()));
+		}
+
 		paintPanels();
 	}
 
@@ -35,7 +40,8 @@ public class Main {
                 JFrame f = new JFrame("PID Simulator");
                 f.setIconImage(new ImageIcon("images/image.png").getImage());
                 f.setSize(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
-                f.setLayout(new GridLayout(2, 2));
+                f.getContentPane().setBackground(Constants.Colors.BLACK);
+		f.setLayout(new GridLayout(2, 2, 5, 5));
                 
                 f.add(stPanel);
                 f.add(vtPanel);
