@@ -5,12 +5,15 @@ public class Constants {
         public static final int FRAME_WIDTH = 1250;
         public static final int FRAME_HEIGHT = 550+38;
 
-        //Grid size
-        public static final int GRID_WIDTH = FRAME_WIDTH-25;
-        public static final int GRID_HEIGHT = FRAME_HEIGHT/2;
-
         //Spacing between lines on grid
-        public static final int SPACE = 20;
+        public static final int SPACE = 30;
+
+	//Extra space before starting grid
+	public static final int EXTRA = 25;
+
+	//Grid sizes
+        public static final int GRID_WIDTH = FRAME_WIDTH-EXTRA;
+        public static final int GRID_HEIGHT = (int)(FRAME_HEIGHT/2.2);
 
         //Color
         public static final Color GREY = new Color(230, 230, 230);

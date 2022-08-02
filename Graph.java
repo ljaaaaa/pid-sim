@@ -5,21 +5,24 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 public class Graph extends JPanel {
-	int xtra = Constants.EXTRA;
+	int xtra;
 	public ArrayList<MyPoint> points;
 
         public Graph(){
         	points = new ArrayList<>();
-        }
+        	xtra = Constants.EXTRA;
+	}
 
         @Override
         protected void paintComponent(Graphics g){
                 super.paintComponent(g);
                 Graphics2D g2d = (Graphics2D)g;
 
+		//Draw background
 		g2d.setColor(Constants.GREY2);
 		g2d.fillRect(0, 0, getWidth(), getHeight());
 
+		//Grid and points
                 drawGrid(g2d);
                 drawPoints(g2d);
                 connectPoints(g2d);
