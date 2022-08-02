@@ -1,4 +1,3 @@
-import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import java.awt.GridLayout;
@@ -22,8 +21,12 @@ public class Main {
         }
 
 	public void moveCar(){
+		car.a = 2;
 		for (int x = 0; x < 2000/Constants.SPACE; x++){
-			stPanel.points.add(new MyPoint(x/2.0, car.move()));
+			car.passTime();
+			stPanel.points.add(new MyPoint(x/2.0, car.s));
+			vtPanel.points.add(new MyPoint(x/2.0, car.v));
+			atPanel.points.add(new MyPoint(x/2.0, car.a));
 		}
 
 		paintPanels();

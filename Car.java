@@ -13,17 +13,15 @@ public class Car {
 		a = 0.0; //Accelerating initially set to 0
 	}
 
-	//Passes time t
-	public double move(){
+	//Pass time t
+	public void passTime(){
 		//Update position s
-		s += (v * t) + (1/2) * a * (t*t);
+                s += (v * t) + (1/2) * a * (t*t);
 
-		//Round s to two decimal places
-		s = Math.round(s * 100.0) / 100.0;
+                //Round s to two decimal places
+                s = Math.round(s * 100.0) / 100.0;
 
-		//Update speed v
-		v = v + a * t;
-
-		return s;
+                //Update speed v
+                v = v + a * t;
 	}
 }

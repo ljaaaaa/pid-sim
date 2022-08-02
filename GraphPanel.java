@@ -1,7 +1,6 @@
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Color;
 import java.util.ArrayList;
 
 public class GraphPanel extends JPanel {
@@ -45,10 +44,11 @@ public class GraphPanel extends JPanel {
         //Draw all points in time.points
         public void drawPoints(Graphics2D g2d){
                 g2d.setColor(Constants.Colors.POINT);
+		int pointSize = 4;
                 
                 for (int x = 0; x < points.size(); x++){
                         MyPoint point = points.get(x);
-                        drawPoint(g2d, point.x * Constants.SPACE + xtra, getHeight() - point.y * Constants.SPACE - xtra, 4);
+                        drawPoint(g2d, point.x * Constants.SPACE + xtra, getHeight() - point.y * Constants.SPACE - xtra, pointSize);
 		}
         }	
 
@@ -60,12 +60,12 @@ public class GraphPanel extends JPanel {
         //Draw initial grid base
         public void drawGrid(Graphics2D g2d){
        		//Time text
-		g2d.setColor(Color.BLACK);
-            	g2d.drawString(xAxis + " - " + car.t, xtra, getHeight()-5);
+		g2d.setColor(Constants.Colors.BLACK);
+            	g2d.drawString(xAxis, xtra, getHeight()-5);
 
             	//Motor Output text
             	g2d.rotate(Math.toRadians(270));
-            	g2d.drawString(yAxis + " - " + car.t, -getHeight()+xtra, xtra-5);
+            	g2d.drawString(yAxis, -getHeight()+xtra, xtra-5);
             	g2d.rotate(-Math.toRadians(270));
 
             	g2d.setColor(Constants.Colors.GREY_LOW);
