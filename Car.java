@@ -8,8 +8,7 @@ public class Car {
         public Car(){
         	t = 0.1; //Updated 10 times a second
 		v = 1.0; //Speed 1 m/s
-		s = 0.0; //Starting position is 0
-        
+		s = 0.0; //Starting position is 0 
 		a = 0.0; //Accelerating initially set to 0
 	}
 
@@ -23,5 +22,15 @@ public class Car {
 
                 //Update speed v
                 v = v + a * t;
+
+		//Update acceleration using PID
+                a = getAccelerationP();
+	}
+
+	//Get new acceleration with P
+	public double getAccelerationP(){
+		double error = Constants.TARGET - s;
+
+    		return Constants.PID.kP * error;
 	}
 }
