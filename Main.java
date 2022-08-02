@@ -1,37 +1,50 @@
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import java.awt.GridLayout;
 
 public class Main {
-        public GraphPanel graphPanel;
 	public CarPanel carPanel;
         public Car car;
 
+	public GraphPanel stPanel; //Position vs. time
+	public GraphPanel vtPanel; //Speed vs. time
+	public GraphPanel atPanel; //Acceleration vs. time panel
+
         public Main(){
                 car = new Car();
-                graphPanel = new GraphPanel();
+                stPanel = new GraphPanel();
+		vtPanel = new GraphPanel();
+		atPanel = new GraphPanel();
 		carPanel = new CarPanel(car);
                 setUpFrame();
                 moveCar();
         }
 
 	public void moveCar(){
-	
-	} 
+		car.move();
+		paintPanels();
+	}
+
+	public void paintPanels(){
+		stPanel.repaint();
+		vtPanel.repaint();
+		atPanel.repaint();
+		carPanel.repaint();
+	}
 
         public void setUpFrame(){
                 JFrame f = new JFrame("PID Simulator");
                 f.setIconImage(new ImageIcon("images/image.png").getImage());
                 f.setSize(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
-                f.setLayout(null);
+                f.setLayout(new GridLayout(2, 2));
                 
-                f.add(graphPanel);
-                graphPanel.setBounds(0, 0, Constants.GRID_WIDTH+25, Constants.GRID_HEIGHT+25);
-
+                f.add(stPanel);
+                f.add(vtPanel);
+		f.add(atPanel);
 		f.add(carPanel);
-		carPanel.setBounds(0, Constants.GRID_HEIGHT+25, Constants.CAR_WIDTH+25, Constants.CAR_HEIGHT+25);
 
                 f.setLocationRelativeTo(null);
-                f.setResizable(false);
+                f.setResizable(true);
                 f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 f.setVisible(true);
         }

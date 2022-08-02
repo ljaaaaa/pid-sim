@@ -6,31 +6,25 @@ public class Constants {
         public static final int FRAME_HEIGHT = 750+38;
 
         //Spacing between lines on grid
-        public static final int SPACE = 30;
+        public static final int SPACE = 15;
 
-	//Extra space before starting grid
-	public static final int EXTRA = 25;
-
-	//GraphPanel sizes
-        public static final int GRID_WIDTH = FRAME_WIDTH-EXTRA;
-        public static final int GRID_HEIGHT = (int)(FRAME_HEIGHT/2.5);
-
-	//CarPanel sizes
-	public static final int CAR_WIDTH = FRAME_WIDTH-EXTRA;
-        public static final int CAR_HEIGHT = FRAME_HEIGHT-GRID_HEIGHT;
-
+	//Target for car to reach
+	public static final int TARGET = 3;
+	
         //Color
-        public static final Color GREY = new Color(230, 230, 230);
-	public static final Color GREY2 = new Color(185, 185, 185);
-        public static final Color POINT_COLOR = new Color(255, 0, 0);
-        public static final Color TARGET_COLOR = new Color(0, 0, 255);
+	public static class Colors {
+        	public static final Color GREY_LOW = new Color(230, 230, 230);
+		public static final Color GREY_MED = new Color(190, 190, 190);
+       		public static final Color GREY_HIGH = new Color(150, 150, 150);
 
-        //PID
-        public static final double TARGET = 1;
-        public static final double kP = 1.8;
-        public static final double kD = 0.1;
-        public static final double kI = 0.0;
+		public static final Color POINT = new Color(255, 0, 0);
+        	public static final Color TARGET = new Color(0, 0, 255);
+	}
 
-        //Amount of time that passes each time Motor.getOutput() is run
-        public static final double PASS_TIME = 1;
+        //PID constants
+	public static class PID {
+        	public static final double kP = 0.0;
+        	public static final double kD = 0.0;
+        	public static final double kI = 0.0;
+	}
 }
