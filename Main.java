@@ -1,7 +1,10 @@
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JButton;
+import javax.swing.BoxLayout;
 import java.awt.GridLayout;
+import java.awt.BorderLayout;
 
 public class Main {
 	public CarPanel carPanel;
@@ -51,13 +54,30 @@ public class Main {
                 JFrame f = new JFrame("PID Simulator");
                 f.setIconImage(new ImageIcon("images/image.png").getImage());
                 f.setSize(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
-                f.getContentPane().setBackground(Constants.Colors.BLACK);
-		f.setLayout(new GridLayout(2, 2, 5, 5));
                 
-                f.add(stPanel);
-                f.add(vtPanel);
-		f.add(atPanel);
-		f.add(carPanel);
+		//Set backgrounds
+		mainPanel.setBackground(Constants.Colors.BLACK);
+		sidePanel.setBackground(Constants.Colors.BLACK);
+		f.getContentPane().setBackground(Constants.Colors.BLACK);
+
+		//Set layouts
+		mainPanel.setLayout(new GridLayout(2, 2, 5, 5));
+		sidePanel.setLayout(new BoxLayout(sidePanel, BoxLayout.Y_AXIS));
+		f.setLayout(new BorderLayout());
+               
+		sidePanel.add(new JButton("Click me!"));
+		sidePanel.add(new JButton("Click me!"));
+		sidePanel.add(new JButton("Click me!"));
+		sidePanel.add(new JButton("Click me!"));
+		sidePanel.add(new JButton("Click me!"));
+		
+		//Add panels
+                mainPanel.add(stPanel);
+                mainPanel.add(vtPanel);
+		mainPanel.add(atPanel);
+		mainPanel.add(carPanel);
+		f.getContentPane().add(mainPanel, BorderLayout.CENTER);
+		f.getContentPane().add(sidePanel, BorderLayout.EAST);
 
                 f.setLocationRelativeTo(null);
                 f.setResizable(true);
