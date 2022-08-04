@@ -7,15 +7,15 @@ import java.awt.GridLayout;
 import java.awt.BorderLayout;
 
 public class Main {
-	public CarPanel carPanel;
         public Car car;
 
 	public GraphPanel stPanel; //Position vs. time
 	public GraphPanel vtPanel; //Speed vs. time
 	public GraphPanel atPanel; //Acceleration vs. time panel
+	public CarPanel carPanel; //Car animation panel
 
-	public JPanel mainPanel;
-	public JPanel sidePanel;
+	public JPanel mainPanel; //Main panel with graphs
+	public JPanel sidePanel; //Side panel
 
         public Main(){
                 car = new Car();
