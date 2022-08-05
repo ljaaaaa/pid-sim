@@ -1,5 +1,6 @@
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JLabel;
 import javax.swing.BoxLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -27,13 +28,26 @@ public class SidePanel extends JPanel implements ActionListener{
 		this.car = car;
 
 		//Add fields to sidepanel in order
+		
+		add(new JLabel("t"));
 		add(tField);
+
+		add(new JLabel("v"));
 		add(vField);
+
+		add(new JLabel("s"));
 		add(sField);
+
+		add(new JLabel("a"));
 		add(aField);
 
+		add(new JLabel("p"));
 		add(pField);
+
+		add(new JLabel("i"));
 		add(iField);
+
+		add(new JLabel("d"));
 		add(dField);
 	}
 

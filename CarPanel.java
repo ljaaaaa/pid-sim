@@ -27,7 +27,7 @@ public class CarPanel extends JPanel {
 	}
 
 	public void drawGround(Graphics2D g2d){
-		g2d.setColor(Constants.Colors.GREY_HIGH);
+		g2d.setColor(Constants.GREY_HIGH);
 		g2d.fillRect(0, groundLevel, getWidth(), getHeight()-groundLevel);
 	}
 
@@ -35,11 +35,11 @@ public class CarPanel extends JPanel {
 		int xtra = 200; //Xtra space for car
 
 		//Box
-		g2d.setColor(Constants.Colors.CAR);
+		g2d.setColor(Constants.CAR);
 		g2d.fillRect((int)(car.s - carWidth)+200, groundLevel - carHeight - xtra/20, carWidth, carHeight);
 	
 		//Wheels
-		g2d.setColor(Constants.Colors.GREY_MED);
+		g2d.setColor(Constants.GREY_MED);
 		g2d.fillOval((int)(car.s - carWidth)+(carWidth/10)+200, groundLevel-(wheelDi/2) - xtra/20, wheelDi, wheelDi);
 		g2d.fillOval((int)(car.s - wheelDi)-(carWidth/10)+200, groundLevel-(wheelDi/2) - xtra/20, wheelDi, wheelDi);
 	}

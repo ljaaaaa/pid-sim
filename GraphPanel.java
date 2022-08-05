@@ -29,7 +29,7 @@ public class GraphPanel extends JPanel {
                 Graphics2D g2d = (Graphics2D)g;
 		
 		//Draw background
-		g2d.setColor(Constants.Colors.GREY_MED);
+		g2d.setColor(Constants.GREY_MED);
 		g2d.fillRect(0, 0, getWidth(), getHeight());
 
 		//Grid and points
@@ -43,7 +43,7 @@ public class GraphPanel extends JPanel {
 
         //Draw all points in time.points
         public void drawPoints(Graphics2D g2d){
-                g2d.setColor(Constants.Colors.POINT);
+                g2d.setColor(Constants.POINT);
 		int pointSize = 4;
                 
                 for (int x = 0; x < points.size(); x++){
@@ -60,7 +60,7 @@ public class GraphPanel extends JPanel {
         //Draw initial grid base
         public void drawGrid(Graphics2D g2d){
        		//Time text
-		g2d.setColor(Constants.Colors.BLACK);
+		g2d.setColor(Constants.BLACK);
             	g2d.drawString(xAxis, xtra, getHeight()-5);
 
             	//Motor Output text
@@ -68,7 +68,7 @@ public class GraphPanel extends JPanel {
             	g2d.drawString(yAxis, -getHeight()+xtra, xtra-5);
             	g2d.rotate(-Math.toRadians(270));
 
-            	g2d.setColor(Constants.Colors.GREY_LOW);
+            	g2d.setColor(Constants.GREY_LOW);
 
             	//X-axis (up/down)
             	for (int x = 0; x <= getWidth(); x+=Constants.SPACE){
@@ -83,9 +83,9 @@ public class GraphPanel extends JPanel {
 
 	//Draw target line if position vs. time graph
 	public void drawTargetLine(Graphics2D g2d){
-		int target_line = (int)((((double)getHeight()/Constants.SPACE)-Constants.TARGET)*Constants.SPACE);
+		int target_line = (int)((((double)getHeight()/Constants.SPACE)-car.target)*Constants.SPACE);
 
-                g2d.setColor(Constants.Colors.TARGET);
+                g2d.setColor(Constants.TARGET);
                 g2d.drawLine(0+xtra, target_line-xtra, getWidth() + xtra, target_line-xtra);
 	}
 }

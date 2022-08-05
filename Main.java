@@ -54,9 +54,8 @@ public class Main {
                 f.setSize(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
                 
 		//Set backgrounds
-		mainPanel.setBackground(Constants.Colors.BLACK);
-		sidePanel.setBackground(Constants.Colors.BLACK);
-		f.getContentPane().setBackground(Constants.Colors.BLACK);
+		mainPanel.setBackground(Constants.BLACK);
+		f.getContentPane().setBackground(Constants.BLACK);
 
 		//Set layouts
 		mainPanel.setLayout(new GridLayout(2, 2, 5, 5));

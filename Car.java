@@ -24,12 +24,12 @@ public class Car {
 		a = 0.0; //Accelerating initially set to 0
 	
 		kP = 0.8;
-		kI = 0;
-		kD = 0;
+		kI = 0.001;
+		kD = 0.6;
 
 		target = 5;
 
-		lastError = Constants.TARGET - s; //Set last error
+		lastError = target - s; //Set last error
 	}
 
 	//Pass time t
