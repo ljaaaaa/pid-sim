@@ -1,7 +1,6 @@
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JButton;
 import javax.swing.BoxLayout;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
@@ -15,7 +14,7 @@ public class Main {
 	public CarPanel carPanel; //Car animation panel
 
 	public JPanel mainPanel; //Main panel with graphs
-	public JPanel sidePanel; //Side panel
+	public SidePanel sidePanel; //Side panel
 
         public Main(){
                 car = new Car();
@@ -26,7 +25,7 @@ public class Main {
 		carPanel = new CarPanel(car);
 
 		mainPanel = new JPanel();
-		sidePanel = new JPanel();
+		sidePanel = new SidePanel();
 
                 setUpFrame();
                 moveCar();
@@ -65,12 +64,6 @@ public class Main {
 		sidePanel.setLayout(new BoxLayout(sidePanel, BoxLayout.Y_AXIS));
 		f.setLayout(new BorderLayout());
                
-		sidePanel.add(new JButton("Click me!"));
-		sidePanel.add(new JButton("Click me!"));
-		sidePanel.add(new JButton("Click me!"));
-		sidePanel.add(new JButton("Click me!"));
-		sidePanel.add(new JButton("Click me!"));
-		
 		//Add panels
                 mainPanel.add(stPanel);
                 mainPanel.add(vtPanel);
