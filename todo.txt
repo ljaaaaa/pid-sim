@@ -1,0 +1,6 @@
+To-Do
+
+1. Make car animation with start and target.
+2. a) Make graphs longer with reasizing
+2. b) Make min and max for resizing
+3. TONS OF COMMENTS 

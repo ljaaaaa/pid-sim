@@ -21,11 +21,4 @@ public class Constants {
 		public static final Color CAR = new Color(23, 100, 45);
         	public static final Color TARGET = new Color(0, 0, 255);
 	}
-
-        //PID constants
-	public static class PID {
-        	public static final double kP = 0.8;
-        	public static final double kD = 0.3;
-        	public static final double kI = 0.001;
-	}
 }

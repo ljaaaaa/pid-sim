@@ -1,7 +1,6 @@
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.BoxLayout;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 
@@ -25,7 +24,7 @@ public class Main {
 		carPanel = new CarPanel(car);
 
 		mainPanel = new JPanel();
-		sidePanel = new SidePanel();
+		sidePanel = new SidePanel(car);
 
                 setUpFrame();
                 moveCar();
@@ -61,7 +60,6 @@ public class Main {
 
 		//Set layouts
 		mainPanel.setLayout(new GridLayout(2, 2, 5, 5));
-		sidePanel.setLayout(new BoxLayout(sidePanel, BoxLayout.Y_AXIS));
 		f.setLayout(new BorderLayout());
                
 		//Add panels

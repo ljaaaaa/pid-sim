@@ -1,11 +1,21 @@
 public class Car {
+	//Physics variables
 	public double t; //Amount of time until next update, 't step'
 	public double v; //Speed in m/s
 	public double s; //Current position
 	public double a; //Acceleration, controlled by PID
 
+	//PID values
+	public double kP;
+	public double kI;
+	public double kD;
+
+	//Error variables
 	public double lastError;
 	public double totalError;
+
+	//Target to reach
+	public double target;
 
         public Car(){
         	t = 0.1; //Updated 10 times a second
@@ -30,14 +40,14 @@ public class Car {
 	
 	//Get new acceleration using PID
 	public double getAccelerationPID(){
-		double error = Constants.TARGET - s;
+		double error = target - s;
 		double errorRate = (error - lastError) / t;
 		
 		if(Math.abs(error) < 1){
 			totalError += error * t;
 		}
 
-		double output = (Constants.PID.kP * error) + (Constants.PID.kI * totalError) + (Constants.PID.kD * errorRate);
+		double output = (kP * error) + (kI * totalError) + (kD * errorRate);
 		lastError = error;
 
 		return output;
