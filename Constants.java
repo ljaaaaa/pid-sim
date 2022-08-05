@@ -7,9 +7,6 @@ public class Constants {
 
         //Spacing between lines on grid
         public static final int SPACE = 8;
-
-	//Target for car to reach in meters
-	public static final double TARGET = 3;
 	
         //Color
 	public static class Colors {

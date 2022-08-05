@@ -22,7 +22,13 @@ public class Car {
 		v = 0.0; //Speed 1 m/s
 		s = 0.0; //Starting position is 0 
 		a = 0.0; //Accelerating initially set to 0
-		
+	
+		kP = 0.8;
+		kI = 0;
+		kD = 0;
+
+		target = 5;
+
 		lastError = Constants.TARGET - s; //Set last error
 	}
 
