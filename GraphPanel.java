@@ -88,4 +88,8 @@ public class GraphPanel extends JPanel {
                 g2d.setColor(Constants.TARGET);
                 g2d.drawLine(0+xtra, target_line-xtra, getWidth() + xtra, target_line-xtra);
 	}
+
+	public void resetPoints(){
+		points.clear();
+	}
 }

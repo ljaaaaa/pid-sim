@@ -58,4 +58,9 @@ public class Car {
 
 		return output;
 	}
+
+	public void reset(){
+		totalError = 0;
+		lastError = target - s;
+	}
 }

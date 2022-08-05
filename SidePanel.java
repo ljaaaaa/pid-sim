@@ -1,23 +1,25 @@
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.BoxLayout;
+import javax.swing.JLabel;;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 
 public class SidePanel extends JPanel implements ActionListener{
-	//Reference to car
+	//Reference to car and main
+	public Main main;
 	public Car car; 
 
 	public ArrayList<MyField> fields;
 
-	public SidePanel(Car car){
+	public SidePanel(Main main, Car car){
 		//Set layout
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		setLayout(new GridLayout(20, 1));
 		
 		//Set reference to car
+		this.main = main;
 		this.car = car;
 
 		//Add action listeners to all fields
@@ -30,41 +32,58 @@ public class SidePanel extends JPanel implements ActionListener{
 		fields.add(new MyField("a", car.a));
 
 		//Add PID fields
-		fields.add(new MyField("P", car.kP));
-		fields.add(new MyField("I", car.kI));
-		fields.add(new MyField("D", car.kD));
+		fields.add(new MyField("kP", car.kP));
+		fields.add(new MyField("kI ", car.kI));
+		fields.add(new MyField("kD", car.kD));
 	
+		//Add target
+		fields.add(new MyField("target", car.target));
+
 		addFieldsToPanel();
 		addActionListeners();
 	}
 
 	@Override
         public void actionPerformed(ActionEvent e) {
-		//Update all physics values
-		car.t = fields.get(0).getVal();
-		car.v = fields.get(1).getVal();
-		car.s = fields.get(2).getVal();
-		car.a = fields.get(3).getVal();
+		try {
+			//Update all physics values
+			car.t = fields.get(0).getVal();
+			car.v = fields.get(1).getVal();
+			car.s = fields.get(2).getVal();
+			car.a = fields.get(3).getVal();
 
-		//Update all PID values
-		car.kP = fields.get(4).getVal();
-		car.kI = fields.get(5).getVal();
-		car.kD = fields.get(6).getVal();
+			//Update all PID values
+			car.kP = fields.get(4).getVal();
+			car.kI = fields.get(5).getVal();
+			car.kD = fields.get(6).getVal();
 
-		
+			//Update target
+			car.target = fields.get(7).getVal();
+
+			main.moveCar();
+		} catch (NumberFormatException ex){
+
+		}
 	}
 
 	//Adds all MyFields to panel
 	public void addFieldsToPanel(){
-		add(new JLabel("Physics Values:"));
+		//Physics values
+		add(new JLabel(" Physics Values:"));
+		add(fields.get(0));
+		add(fields.get(1));
+		add(fields.get(2));
+		add(fields.get(3));
 
-		for (int x = 0; x < fields.size(); x++){
-			add(fields.get(x));
+		//PID values
+		add(new JLabel(" PID Values:"));
+		add(fields.get(4));
+		add(fields.get(5));
+		add(fields.get(6));
 
-			if (fields.get(x).text.equals("a")){
-				add(new JLabel("PID Values:"));
-			}
-		}
+		//Target
+		add(new JLabel(" Target:"));
+		add(fields.get(7));
 	}
 
 	//Adds action listeners to MyField fields

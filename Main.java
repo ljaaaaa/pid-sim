@@ -24,7 +24,7 @@ public class Main {
 		carPanel = new CarPanel(car);
 
 		mainPanel = new JPanel();
-		sidePanel = new SidePanel(car);
+		sidePanel = new SidePanel(this, car);
 
                 setUpFrame();
                 moveCar();
@@ -32,6 +32,11 @@ public class Main {
 
 	public void moveCar(){
 		double pDiv = 10; //Number of points in each square
+		
+		//Reset points
+		resetAllPoints();
+		car.reset();
+
 		for (int x = 0; x < (pDiv/Constants.SPACE)*stPanel.getWidth(); x++){
 			car.passTime();
 			stPanel.points.add(new MyPoint(x/pDiv, car.s));
@@ -46,6 +51,12 @@ public class Main {
 		vtPanel.repaint();
 		atPanel.repaint();
 		carPanel.repaint();
+	}
+
+	public void resetAllPoints(){
+		stPanel.resetPoints();
+		vtPanel.resetPoints();
+		atPanel.resetPoints();
 	}
 
         public void setUpFrame(){
