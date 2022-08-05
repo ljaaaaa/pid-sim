@@ -2,23 +2,22 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;
+import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class SidePanel extends JPanel implements ActionListener{
 	//Reference to car
 	public Car car; 
-	
-	//Fields for car physics values
-	public JTextField tField = new JTextField(10);
-        public JTextField vField = new JTextField(10);
-       	public JTextField sField = new JTextField(10);
-        public JTextField aField = new JTextField(10);
 
-	//Field for car PID values
-        public JTextField pField = new JTextField(10);
-        public JTextField iField = new JTextField(10);
-        public JTextField dField = new JTextField(10);
+	public MyField tField = new MyField("t");
+	public MyField vField = new MyField("v");
+	public MyField sField = new MyField("s");
+	public MyField aField = new MyField("a");
+
+	public MyField pField = new MyField("P");
+	public MyField iField = new MyField(" I");
+	public MyField dField = new MyField("D");
 
 	public SidePanel(Car car){
 		//Set layout
@@ -27,34 +26,47 @@ public class SidePanel extends JPanel implements ActionListener{
 		//Set reference to car
 		this.car = car;
 
-		//Add fields to sidepanel in order
-		
-		add(new JLabel("t"));
+		tField.field.addActionListener(this);
+
+		//Add fields to sidepanel in order	
+		add(new JLabel("Physics Values:"));
 		add(tField);
-
-		add(new JLabel("v"));
 		add(vField);
-
-		add(new JLabel("s"));
 		add(sField);
-
-		add(new JLabel("a"));
 		add(aField);
 
-		add(new JLabel("p"));
+		add(new JLabel("PID Values: "));
 		add(pField);
-
-		add(new JLabel("i"));
 		add(iField);
-
-		add(new JLabel("d"));
 		add(dField);
 	}
 
 	@Override
         public void actionPerformed(ActionEvent e) {
 
-		//switch (e.get
+		if (e.getSource() == tField.field){
+
+			System.out.println(tField);
+		}
 
         }
+
+	public class MyField extends JPanel{
+		public JTextField field;
+		public JLabel label;
+
+		public MyField(String text){
+			label = new JLabel(" " + text + ": ");
+			field = new JTextField(10);
+
+			setLayout(new BorderLayout());
+			add(label, BorderLayout.WEST);
+			add(field, BorderLayout.CENTER);
+
+		}
+
+
+
+		
+	}
 }
