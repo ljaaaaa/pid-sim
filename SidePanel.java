@@ -5,19 +5,13 @@ import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class SidePanel extends JPanel implements ActionListener{
 	//Reference to car
 	public Car car; 
 
-	public MyField tField = new MyField("t");
-	public MyField vField = new MyField("v");
-	public MyField sField = new MyField("s");
-	public MyField aField = new MyField("a");
-
-	public MyField pField = new MyField("P");
-	public MyField iField = new MyField(" I");
-	public MyField dField = new MyField("D");
+	public ArrayList<MyField> fields;
 
 	public SidePanel(Car car){
 		//Set layout
@@ -26,30 +20,51 @@ public class SidePanel extends JPanel implements ActionListener{
 		//Set reference to car
 		this.car = car;
 
-		tField.field.addActionListener(this);
+		//Add action listeners to all fields
+		fields = new ArrayList<>();
 
-		//Add fields to sidepanel in order	
-		add(new JLabel("Physics Values:"));
-		add(tField);
-		add(vField);
-		add(sField);
-		add(aField);
+		//Add physics fields
+		fields.add(new MyField("t"));
+		fields.add(new MyField("v"));
+		fields.add(new MyField("s"));
+		fields.add(new MyField("a"));
 
-		add(new JLabel("PID Values: "));
-		add(pField);
-		add(iField);
-		add(dField);
+		//Add PID fields
+		fields.add(new MyField("P"));
+		fields.add(new MyField("I"));
+		fields.add(new MyField("D"));
+	
+		addFieldsToPanel();
+		addActionListeners();
 	}
 
 	@Override
         public void actionPerformed(ActionEvent e) {
 
-		if (e.getSource() == tField.field){
+		for (int x = 0; x < fields.size(); x++){
+			if (e.getSource() == fields.get(x).field){
 
-			System.out.println(tField);
+				//C++ references to integers would be handy here
+
+			}
 		}
-
         }
+
+	//Adds all MyFields to panel
+	public void addFieldsToPanel(){
+		for (int x = 0; x < fields.size(); x++){
+			add(fields.get(x));
+		}
+	}
+
+	//Adds action listeners to MyField fields
+	public void addActionListeners(){
+		for (int x = 0; x < fields.size(); x++){
+                        fields.get(x).addActionListener(this);
+                }
+	}
+
+
 
 	public class MyField extends JPanel{
 		public JTextField field;
