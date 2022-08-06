@@ -3,8 +3,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+
 
 public class Main {
 	public Car car;
@@ -69,6 +71,7 @@ public class Main {
 		//f.getContentPane().add(sidePanel, BorderLayout.EAST);
 
                 f.setLocationRelativeTo(null);
+		f.setMinimumSize(new Dimension(600, 400));
                 f.setResizable(true);
                 f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 f.setVisible(true);
