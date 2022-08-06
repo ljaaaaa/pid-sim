@@ -1,9 +1,15 @@
-public class Car {
-	//Physics variables
-	public double t; //Amount of time until next update, 't step'
-	public double v; //Speed in m/s
-	public double s; //Current position
-	public double a; //Acceleration, controlled by PID
+public class Car {	
+	//Amount of time until next update, 't step'
+	public double t;
+
+	//Speed in m/s
+	public double v;
+
+	//Current position
+	public double s;
+
+	//Acceleration controlled by PID
+	public double a;
 
 	//PID values
 	public double kP;
@@ -18,18 +24,19 @@ public class Car {
 	public double target;
 
         public Car(){
-        	t = 0.1; //Updated 10 times a second
-		v = 0.0; //Speed 1 m/s
-		s = 0.0; //Starting position is 0 
-		a = 0.0; //Accelerating initially set to 0
+		//Default physics values
+        	t = 0.1;
+		v = 0.0;
+		s = 0.0;
+		a = 0.0;
 	
-		kP = 0.8;
-		kI = 0.001;
-		kD = 0.6;
+		//Default PID values
+		kP = 0.9;
+		kI = 0.02;
+		kD = 0.4;
 
 		target = 5;
-
-		lastError = target - s; //Set last error
+		lastError = target - s;
 	}
 
 	//Pass time t
@@ -59,6 +66,7 @@ public class Car {
 		return output;
 	}
 
+	//Reset variables for new points
 	public void reset(){
 		s = 0;
 		totalError = 0;

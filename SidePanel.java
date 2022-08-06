@@ -12,6 +12,7 @@ public class SidePanel extends JPanel implements ActionListener{
 	public Main main;
 	public Car car; 
 
+	//List of all fields
 	public ArrayList<MyField> fields;
 
 	public SidePanel(Main main, Car car){
@@ -28,8 +29,6 @@ public class SidePanel extends JPanel implements ActionListener{
 		//Add physics fields
 		fields.add(new MyField("t", car.t));
 		fields.add(new MyField("v", car.v));
-		fields.add(new MyField("s", car.s));
-		fields.add(new MyField("a", car.a));
 
 		//Add PID fields
 		fields.add(new MyField("kP", car.kP));
@@ -49,16 +48,14 @@ public class SidePanel extends JPanel implements ActionListener{
 			//Update all physics values
 			car.t = fields.get(0).getVal();
 			car.v = fields.get(1).getVal();
-			car.s = fields.get(2).getVal();
-			car.a = fields.get(3).getVal();
 
 			//Update all PID values
-			car.kP = fields.get(4).getVal();
-			car.kI = fields.get(5).getVal();
-			car.kD = fields.get(6).getVal();
+			car.kP = fields.get(2).getVal();
+			car.kI = fields.get(3).getVal();
+			car.kD = fields.get(4).getVal();
 
 			//Update target
-			car.target = fields.get(7).getVal();
+			car.target = fields.get(5).getVal();
 
 			main.moveCar();
 		} catch (NumberFormatException ex){
@@ -72,18 +69,18 @@ public class SidePanel extends JPanel implements ActionListener{
 		add(new JLabel(" Physics Values"));
 		add(fields.get(0));
 		add(fields.get(1));
-		add(fields.get(2));
-		add(fields.get(3));
+		add(new JLabel(" s: " + car.s));
+		add(new JLabel(" a: " + car.a));
 
 		//PID values
 		add(new JLabel(" PID Values"));
+		add(fields.get(2));
+		add(fields.get(3));
 		add(fields.get(4));
-		add(fields.get(5));
-		add(fields.get(6));
 
 		//Target
 		add(new JLabel(" Target"));
-		add(fields.get(7));
+		add(fields.get(5));
 	}
 
 	//Adds action listeners to MyField fields
@@ -93,11 +90,13 @@ public class SidePanel extends JPanel implements ActionListener{
                 }
 	}
 
+	//MyField class, has field and label for each variable
 	public class MyField extends JPanel{
 		public JTextField field;
 		public JLabel label;
 		public String text;
 
+		//Constructor
 		public MyField(String text, double val){
 			this.text = text;
 			label = new JLabel(" " + text + ": ");

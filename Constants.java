@@ -1,7 +1,7 @@
 import java.awt.Color;
 
 public class Constants {
-        //Screen sizes
+        //Default screen sizes
         public static final int FRAME_WIDTH = 800;
         public static final int FRAME_HEIGHT = 550+38;
 

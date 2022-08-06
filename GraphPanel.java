@@ -4,10 +4,17 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 public class GraphPanel extends JPanel {
+	//Extra space before starting graph
 	public int xtra;
+
+	//X and Y axis names
 	public String xAxis;
 	public String yAxis;
+
+	//Reference to car
 	public Car car;
+
+	//Points list
 	public ArrayList<MyPoint> points;
 
         public GraphPanel(String xAxis, String yAxis, Car car){
@@ -46,6 +53,7 @@ public class GraphPanel extends JPanel {
                 g2d.setColor(Constants.POINT);
 		int pointSize = 4;
                 
+		//Draw points
                 for (int x = 0; x < points.size(); x++){
                         MyPoint point = points.get(x);
                         drawPoint(g2d, point.x * Constants.SPACE + xtra, getHeight() - point.y * Constants.SPACE - xtra, pointSize);
@@ -89,6 +97,7 @@ public class GraphPanel extends JPanel {
                 g2d.drawLine(0+xtra, target_line-xtra, getWidth() + xtra, target_line-xtra);
 	}
 
+	//Reset all points
 	public void resetPoints(){
 		points.clear();
 	}

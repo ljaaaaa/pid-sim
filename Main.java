@@ -9,49 +9,62 @@ import java.awt.event.ComponentEvent;
 
 
 public class Main {
+	//Car with variables
 	public Car car;
 
-	public GraphPanel stPanel; //Position vs. time
-	public GraphPanel vtPanel; //Speed vs. time
-	public GraphPanel atPanel; //Acceleration vs. time panel
-	public CarPanel carPanel; //Car animation panel
+	//Position vs. time graph
+	public GraphPanel stPanel;
+	
+	//Speed vs. time graph
+	public GraphPanel vtPanel;
 
-	public JPanel mainPanel; //Main panel with graphs
-	public SidePanel sidePanel; //Side panel
+	//Acceleration vs. time graph
+	public GraphPanel atPanel;
 
-        public Main(){
-                car = new Car();
+	//Side panel with options
+        public SidePanel sidePanel;
+
+	//Main panel with all graphs and side panel
+	public JPanel mainPanel;
+
+	public Main(){
+		//Set var
+		car = new Car();
                 
+		//Set panels
 		stPanel = new GraphPanel("Time", "Position", car);
 		vtPanel = new GraphPanel("Time", "Speed", car);
 		atPanel = new GraphPanel("Time", "Acceleration", car);
-		carPanel = new CarPanel(car);
-
 		mainPanel = new JPanel();
 		sidePanel = new SidePanel(this, car);
 
+		//Set up GUI frame
                 setUpFrame();
         }
 
 	public void moveCar(){
-		double pDiv = 10; //Number of points in each square
+		//Number of points in each square
+		double pDiv = 10;
 		
 		//Reset points
 		resetAllPoints();
 		car.reset();
 
+		//Set graph points
 		for (int x = 0; x < (pDiv/Constants.SPACE)*stPanel.getWidth(); x++){
 			car.passTime();
 			stPanel.points.add(new MyPoint(x/pDiv, car.s));
 			vtPanel.points.add(new MyPoint(x/pDiv, car.v));
 			atPanel.points.add(new MyPoint(x/pDiv, car.a));
 		}
+
+		//Paint results
 		paintPanels();
 	}
 
         public void setUpFrame(){
                 JFrame f = new JFrame("PID Simulator");
-                f.setIconImage(new ImageIcon("images/image.png").getImage());
+                f.setIconImage(new ImageIcon("images/icon_image.png").getImage());
                 f.setSize(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
                 
 		//Set backgrounds
@@ -68,7 +81,6 @@ public class Main {
 		mainPanel.add(atPanel);
 		mainPanel.add(sidePanel);
 		f.getContentPane().add(mainPanel, BorderLayout.CENTER);
-		//f.getContentPane().add(sidePanel, BorderLayout.EAST);
 
                 f.setLocationRelativeTo(null);
 		f.setMinimumSize(new Dimension(600, 400));
@@ -89,7 +101,6 @@ public class Main {
                 stPanel.repaint();
                 vtPanel.repaint();
                 atPanel.repaint();
-                carPanel.repaint();
         }
 
         //Reset points graphs
