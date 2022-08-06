@@ -60,6 +60,7 @@ public class Car {
 	}
 
 	public void reset(){
+		s = 0;
 		totalError = 0;
 		lastError = target - s;
 	}

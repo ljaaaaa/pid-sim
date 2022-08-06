@@ -16,7 +16,7 @@ public class SidePanel extends JPanel implements ActionListener{
 
 	public SidePanel(Main main, Car car){
 		//Set layout
-		setLayout(new GridLayout(20, 1));
+		setLayout(new GridLayout(11, 1));
 		
 		//Set reference to car
 		this.main = main;
@@ -33,7 +33,7 @@ public class SidePanel extends JPanel implements ActionListener{
 
 		//Add PID fields
 		fields.add(new MyField("kP", car.kP));
-		fields.add(new MyField("kI ", car.kI));
+		fields.add(new MyField("kI", car.kI));
 		fields.add(new MyField("kD", car.kD));
 	
 		//Add target
@@ -69,20 +69,20 @@ public class SidePanel extends JPanel implements ActionListener{
 	//Adds all MyFields to panel
 	public void addFieldsToPanel(){
 		//Physics values
-		add(new JLabel(" Physics Values:"));
+		add(new JLabel(" Physics Values"));
 		add(fields.get(0));
 		add(fields.get(1));
 		add(fields.get(2));
 		add(fields.get(3));
 
 		//PID values
-		add(new JLabel(" PID Values:"));
+		add(new JLabel(" PID Values"));
 		add(fields.get(4));
 		add(fields.get(5));
 		add(fields.get(6));
 
 		//Target
-		add(new JLabel(" Target:"));
+		add(new JLabel(" Target"));
 		add(fields.get(7));
 	}
 

@@ -3,9 +3,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class Main {
-        public Car car;
+	public Car car;
 
 	public GraphPanel stPanel; //Position vs. time
 	public GraphPanel vtPanel; //Speed vs. time
@@ -27,7 +29,6 @@ public class Main {
 		sidePanel = new SidePanel(this, car);
 
                 setUpFrame();
-                moveCar();
         }
 
 	public void moveCar(){
@@ -44,19 +45,6 @@ public class Main {
 			atPanel.points.add(new MyPoint(x/pDiv, car.a));
 		}
 		paintPanels();
-	}
-
-	public void paintPanels(){
-		stPanel.repaint();
-		vtPanel.repaint();
-		atPanel.repaint();
-		carPanel.repaint();
-	}
-
-	public void resetAllPoints(){
-		stPanel.resetPoints();
-		vtPanel.resetPoints();
-		atPanel.resetPoints();
 	}
 
         public void setUpFrame(){
@@ -76,13 +64,35 @@ public class Main {
                 mainPanel.add(stPanel);
                 mainPanel.add(vtPanel);
 		mainPanel.add(atPanel);
-		mainPanel.add(carPanel);
+		mainPanel.add(sidePanel);
 		f.getContentPane().add(mainPanel, BorderLayout.CENTER);
-		f.getContentPane().add(sidePanel, BorderLayout.EAST);
+		//f.getContentPane().add(sidePanel, BorderLayout.EAST);
 
                 f.setLocationRelativeTo(null);
                 f.setResizable(true);
                 f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 f.setVisible(true);
+
+		//Add window resize listener
+		f.addComponentListener(new ComponentAdapter() {
+    			public void componentResized(ComponentEvent componentEvent) {
+				moveCar();
+    			}
+		});
+        }
+
+	//Paint all panels
+        public void paintPanels(){
+                stPanel.repaint();
+                vtPanel.repaint();
+                atPanel.repaint();
+                carPanel.repaint();
+        }
+
+        //Reset points graphs
+        public void resetAllPoints(){
+                stPanel.resetPoints();
+                vtPanel.resetPoints();
+                atPanel.resetPoints();
         }
 }
