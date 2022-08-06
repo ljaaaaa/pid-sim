@@ -1,6 +1,6 @@
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.JLabel;;
+import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

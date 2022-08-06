@@ -22,7 +22,7 @@ public class Main {
 	public GraphPanel atPanel;
 
 	//Side panel with options
-        public SidePanel sidePanel;
+    public SidePanel sidePanel;
 
 	//Main panel with all graphs and side panel
 	public JPanel mainPanel;
