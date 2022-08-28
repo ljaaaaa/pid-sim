@@ -28,7 +28,7 @@ public class Main {
 	public JPanel mainPanel;
 
 	public Main(){
-		//Set var
+		//Set car
 		car = new Car();
                 
 		//Set panels
