@@ -6,7 +6,7 @@ public class Constants {
         public static final int FRAME_HEIGHT = 550+38;
 
         //Spacing between lines on grid
-        public static final int SPACE = 8;
+        public static final int SPACE = 16;
 	
 	//Colors
 	public static final Color GREY_LOW = new Color(230, 230, 230);
